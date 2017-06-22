@@ -1,0 +1,103 @@
+# Hexo Configuration
+## Docs: http://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: King的博客
+subtitle:
+keywords: 前端,JavaScript,CSS,Coffee,Less,Node,npm
+description: 前端,编程,JavaScript,CSS,Coffee,Less,Node,King的个人博客
+author: King
+email: 798757301@qq.com
+language: zh-Hans
+timezone:
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: http://keycode.me
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+#i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: true
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: true
+  tab_replace:
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 5
+pagination_dir: page
+
+# Extensions
+## Plugins: http://hexo.io/plugins/
+## Themes: http://hexo.io/themes/
+theme: hexo-theme-yilia
+
+# Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy:
+  # type: git
+  # repository: https://github.com/geneking/geneking.github.io.git
+  # branch: master
+  type: git
+  repo:
+    github: https://github.com/geneking/geneking.github.io.git,master
+    coding: https://git.coding.net/geneking/geneking.git,master
+
+# 阅读量统计
+leancloud_visitors:
+  enable: true
+  app_id: NnujGio52zq8KUs1XTvJJGqP-gzGzoHsz
+  app_key: xxbu7VCDCU5z3ADqyQq7DUk9
+
+# 多说评论
+duoshuo_shortname: jwg0428
+
+# Extensions
+#Plugins:
+#- hexo-generator-feed
+#- hexo-generator-baidu-sitemap
+
+# Feed Atom
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+
+# sitemap
+baidusitemap:
+path: baidusitemap.xml
