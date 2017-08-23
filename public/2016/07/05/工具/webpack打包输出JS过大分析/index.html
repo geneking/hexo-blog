@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta name="baidu-site-verification" content="JpSPQPoUSx" />
+  <meta name="sogou_site_verification" content="77Vy4VMnmX"/>
+  <meta name="360-site-verification" content="34e66bd2c9beeca05bfca6b2ec99faae" />
+  <title>webpack打包输出JS文件过大 | King的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;#x6700;&amp;#x8FD1;&amp;#x5728;&amp;#x505A;&amp;#x9879;&amp;#x76EE;&amp;#x7684;&amp;#x6027;&amp;#x80FD;&amp;#x4F18;&amp;#x5316;&amp;#xFF0C;&amp;#x9879;&amp;#x76EE;&amp;#x91C7;&amp;#x7528;webpack&amp;#x6784;&amp;#x5EFA;&amp;#xFF0C;&amp;#x5176;&amp;#x4E2D;&amp;#x6709;&amp;#x4E2A;js&amp;#x6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack打包输出JS文件过大">
+<meta property="og:url" content="http://keycode.me/2016/07/05/工具/webpack打包输出JS过大分析/index.html">
+<meta property="og:site_name" content="King的博客">
+<meta property="og:description" content="&amp;#x6700;&amp;#x8FD1;&amp;#x5728;&amp;#x505A;&amp;#x9879;&amp;#x76EE;&amp;#x7684;&amp;#x6027;&amp;#x80FD;&amp;#x4F18;&amp;#x5316;&amp;#xFF0C;&amp;#x9879;&amp;#x76EE;&amp;#x91C7;&amp;#x7528;webpack&amp;#x6784;&amp;#x5EFA;&amp;#xFF0C;&amp;#x5176;&amp;#x4E2D;&amp;#x6709;&amp;#x4E2A;js&amp;#x6">
+<meta property="og:updated_time" content="2016-12-21T16:51:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webpack打包输出JS文件过大">
+<meta name="twitter:description" content="&amp;#x6700;&amp;#x8FD1;&amp;#x5728;&amp;#x505A;&amp;#x9879;&amp;#x76EE;&amp;#x7684;&amp;#x6027;&amp;#x80FD;&amp;#x4F18;&amp;#x5316;&amp;#xFF0C;&amp;#x9879;&amp;#x76EE;&amp;#x91C7;&amp;#x7528;webpack&amp;#x6784;&amp;#x5EFA;&amp;#xFF0C;&amp;#x5176;&amp;#x4E2D;&amp;#x6709;&amp;#x4E2A;js&amp;#x6">
+  
+    <link rel="alternative" href="/atom.xml" title="King的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<script type="text/javascript">
+//百度统计代码
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?6fe6ea647a61d874adb96c0ddf336518";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);s
+})();
+
+window.onload = function(){
+  var winW = window.screen.width;
+  //给首页添加背景音乐
+  if(location.href.replace('www.','').split(".")[1]==="me/" && winW>750){
+     var music = '<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=0 src="http://music.163.com/outchain/player?type=2&id=33035577&auto=1&height=66"></iframe>';
+     $("body").append(music);
+  }
+  //移动端隐移除访问量统计
+  if(winW < 750){
+    $("#count-pv").remove();
+    $("#footer .outer").css({width:"auto",height:"auto"});
+    $(".footer-right").hide();
+  }
+};
+</script>
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://q2.qlogo.cn/g?b=qq&amp;k=jQ8PibVoL3AQORC8WO0ToIw&amp;s=640&amp;t=1479222618" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">King</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">首 页</a></li>
+				        
+							<li><a href="/categories/编程">编 程</a></li>
+				        
+							<li><a href="/categories/工具">工 具</a></li>
+				        
+							<li><a href="/categories/随笔">随 笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/geneking" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="mailto:798757301@qq.com" title="mail">mail</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CodeReview/" style="font-size: 10px;">CodeReview</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/h5/" style="font-size: 10px;">h5</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/react-native/" style="font-size: 15px;">react native</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/前后端分离/" style="font-size: 10px;">前后端分离</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/重构/" style="font-size: 10px;">重构</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/xxcanghai">小小沧海</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://snaile.blog.51cto.com/">默守陈归</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://truilin.com/">Truilin</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://haha.tk/">HaHa</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">91年汉子一枚，毕业后一直从事前端相关工作，平时喜欢摄影、音乐、游泳，也喜欢旅游</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">King</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://q2.qlogo.cn/g?b=qq&amp;k=jQ8PibVoL3AQORC8WO0ToIw&amp;s=640&amp;t=1479222618" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">King</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">首 页</a></li>
+		        
+					<li><a href="/categories/编程">编 程</a></li>
+		        
+					<li><a href="/categories/工具">工 具</a></li>
+		        
+					<li><a href="/categories/随笔">随 笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/geneking" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="mailto:798757301@qq.com" title="mail">mail</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-工具/webpack打包输出JS过大分析" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/05/工具/webpack打包输出JS过大分析/" class="article-date">
+  	<time datetime="2016-07-04T16:00:00.000Z" itemprop="datePublished">2016-07-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      webpack打包输出JS文件过大
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/工具/">工具</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>   &#x6700;&#x8FD1;&#x5728;&#x505A;&#x9879;&#x76EE;&#x7684;&#x6027;&#x80FD;&#x4F18;&#x5316;&#xFF0C;&#x9879;&#x76EE;&#x91C7;&#x7528;webpack&#x6784;&#x5EFA;&#xFF0C;&#x5176;&#x4E2D;&#x6709;&#x4E2A;js&#x6587;&#x4EF6;&#x6253;&#x5305;&#x8F93;&#x51FA;&#x540E;&#x4E3A;1.5M&#xFF0C;&#x4EC0;&#x4E48;&#x9B3C;&#xFF1F;&#x600E;&#x4E48;&#x53EF;&#x4EE5;&#x8FD9;&#x4E48;&#x5927;~~~~&#x8BA9;&#x6211;&#x4EEC;&#x4E0B;&#x9762;&#x6765;&#x770B;&#x770B;&#x539F;&#x56E0;</p>
+<h2 id="1-&#x4E3B;&#x8981;&#x539F;&#x56E0;&#x5206;&#x6790;"><a href="#1-&#x4E3B;&#x8981;&#x539F;&#x56E0;&#x5206;&#x6790;" class="headerlink" title="1.&#x4E3B;&#x8981;&#x539F;&#x56E0;&#x5206;&#x6790;"></a>1.&#x4E3B;&#x8981;&#x539F;&#x56E0;&#x5206;&#x6790;</h2><h3 id="&#xFF08;1&#xFF09;&#x56FE;&#x7247;&#x7684;base64&#x7F16;&#x7801;"><a href="#&#xFF08;1&#xFF09;&#x56FE;&#x7247;&#x7684;base64&#x7F16;&#x7801;" class="headerlink" title="&#xFF08;1&#xFF09;&#x56FE;&#x7247;&#x7684;base64&#x7F16;&#x7801;"></a>&#xFF08;1&#xFF09;&#x56FE;&#x7247;&#x7684;base64&#x7F16;&#x7801;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">{ <span class="attr">test</span>: <span class="regexp">/\.(?:jpg|gif|png)$/</span>, <span class="attr">loader</span>: <span class="string">&apos;url&apos;</span> }</div></pre></td></tr></table></figure>
+<ul>
+<li>&#x4E0D;&#x5BF9;&#x6253;&#x5305;&#x56FE;&#x7247;&#x505A;&#x9650;&#x5236;&#xFF0C;&#x4F1A;&#x5C06;&#x6240;&#x6709;&#x4F9D;&#x8D56;&#x56FE;&#x7247;&#x6253;&#x5305;&#x6210;base64&#xFF0C;&#x524D;&#x9762;&#x8BF4;&#x7684;1.5M&#x4E3B;&#x8981;&#x5C31;&#x662F;4&#x5F20;&#x56FE;&#x7247;&#x6253;&#x5305;&#x6210;base64&#x9020;&#x6210;&#x7684;</li>
+<li>base64&#x6BD4;&#x539F;&#x56FE;&#x8981;&#x5927;&#x4E00;&#x4E9B;&#xFF0C;&#x5927;&#x7EA6;&#x5927;1/3&#xFF0C;&#x6240;&#x4EE5;base64&#x53EA;&#x9002;&#x5408;&#x5C0F;&#x56FE;&#x6807;&#xFF0C;&#x4E0D;&#x9002;&#x5408;&#x504F;&#x5927;&#x7684;&#x56FE;</li>
+</ul>
+<h3 id="&#xFF08;2&#xFF09;&#x56FE;&#x7247;&#x6253;&#x5305;&#x6210;base64&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x53D8;&#x5927;"><a href="#&#xFF08;2&#xFF09;&#x56FE;&#x7247;&#x6253;&#x5305;&#x6210;base64&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x53D8;&#x5927;" class="headerlink" title="&#xFF08;2&#xFF09;&#x56FE;&#x7247;&#x6253;&#x5305;&#x6210;base64&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x53D8;&#x5927;"></a>&#xFF08;2&#xFF09;&#x56FE;&#x7247;&#x6253;&#x5305;&#x6210;base64&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x53D8;&#x5927;</h3><p>base64&#x7F16;&#x7801;&#x4F7F;&#x7528;&#x516B;&#x6BD4;&#x7279;&#x8868;&#x793A;&#x516D;&#x6BD4;&#x7279;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x504F;&#x5927;<br><a id="more"></a></p>
+<h3 id="&#xFF08;3&#xFF09;base64&#x56FE;&#x7247;&#x7684;&#x4F18;&#x7F3A;&#x70B9;"><a href="#&#xFF08;3&#xFF09;base64&#x56FE;&#x7247;&#x7684;&#x4F18;&#x7F3A;&#x70B9;" class="headerlink" title="&#xFF08;3&#xFF09;base64&#x56FE;&#x7247;&#x7684;&#x4F18;&#x7F3A;&#x70B9;"></a>&#xFF08;3&#xFF09;base64&#x56FE;&#x7247;&#x7684;&#x4F18;&#x7F3A;&#x70B9;</h3><p>&#x4F18;&#x70B9;&#xFF1A;</p>
+<blockquote>
+<ul>
+<li>&#x51CF;&#x5C11;HTTP&#x8BF7;&#x6C42;&#xFF1B;</li>
+<li>&#x67D0;&#x4E9B;&#x6587;&#x4EF6;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x8DE8;&#x57DF;&#x7684;&#x95EE;&#x9898;;</li>
+<li>&#x56FE;&#x7247;&#x66F4;&#x65B0;&#x4E0D;&#x9700;&#x8981;&#x6253;&#x7248;&#x672C;&#x53F7;&#xFF0C;&#x4E0D;&#x7528;&#x62C5;&#x5FC3;&#x7F13;&#x5B58;&#x95EE;&#x9898;&#xFF08;&#x4E0D;&#x80FD;&#x7F13;&#x5B58;&#x5176;&#x5B9E;&#x53CD;&#x8FC7;&#x6765;&#x4E5F;&#x662F;&#x4F18;&#x70B9;&#xFF09;&#xFF1B;</li>
+</ul>
+</blockquote>
+<p>&#x7F3A;&#x70B9;&#xFF1A;</p>
+<blockquote>
+<ul>
+<li>&#x56FE;&#x7247;&#x504F;&#x5927;&#xFF0C;&#x6BD4;&#x539F;&#x56FE;&#x5927;1/3&#xFF1B;</li>
+<li>&#x5982;&#x679C;&#x5DE5;&#x5177;&#x4E0D;&#x652F;&#x6301;&#xFF0C;&#x9700;&#x8981;&#x624B;&#x52A8;&#x8F6C;&#x6362;&#x5BFC;&#x5165;base64<a href="http://www.bejson.com/ui/image2base64/" target="_blank" rel="external">&#x5728;&#x7EBF;&#x5DE5;&#x5177;</a>&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;canvas&#x53BB;&#x8F6C;&#xFF1B;</li>
+<li>&#x589E;&#x52A0;&#x4E86;&#x6253;&#x5305;&#x6587;&#x4EF6;&#x5927;&#x5C0F;&#xFF1B;</li>
+<li>&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x60C5;&#x51B5;&#xFF0C;IE6/7&#x4E0D;&#x652F;&#x6301;&#xFF1B;</li>
+<li>&#x4E0D;&#x80FD;&#x7F13;&#x5B58;&#xFF1B;</li>
+</ul>
+</blockquote>
+<h2 id="2-&#x89E3;&#x51B3;webpack&#x6253;&#x5305;base64&#x5F15;&#x8D77;&#x7684;&#x6587;&#x4EF6;&#x504F;&#x5927;"><a href="#2-&#x89E3;&#x51B3;webpack&#x6253;&#x5305;base64&#x5F15;&#x8D77;&#x7684;&#x6587;&#x4EF6;&#x504F;&#x5927;" class="headerlink" title="2.&#x89E3;&#x51B3;webpack&#x6253;&#x5305;base64&#x5F15;&#x8D77;&#x7684;&#x6587;&#x4EF6;&#x504F;&#x5927;"></a>2.&#x89E3;&#x51B3;webpack&#x6253;&#x5305;base64&#x5F15;&#x8D77;&#x7684;&#x6587;&#x4EF6;&#x504F;&#x5927;</h2><p>&#x53EA;&#x9700;&#x8981;&#x5BF9;&#x6253;&#x5305;&#x56FE;&#x7247;&#x505A;&#x4E2A;&#x9650;&#x5236;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">{ <span class="attr">test</span>: <span class="regexp">/\.(?:jpg|gif|png)$/</span>, <span class="attr">loader</span>: <span class="string">&apos;url?limit=10240&amp;name=images/[name]-[hash:8].[ext]&apos;</span> }</div></pre></td></tr></table></figure></p>
+<ul>
+<li>&#x56FE;&#x7247;&#x5927;&#x4E8E;10KB&#x4E0D;&#x6253;&#x5305;&#x6210;base64&#xFF0C;&#x76F4;&#x63A5;&#x8F93;&#x51FA;&#x56FE;&#x7247;</li>
+<li>name&#x540E;&#x8DDF;&#x56FE;&#x7247;&#x8F93;&#x51FA;&#x8DEF;&#x5F84;</li>
+<li>&#x53EF;&#x4EE5;&#x7ED9;&#x56FE;&#x7247;&#x52A0;hash&#x7248;&#x672C;[hash]&#x6216;[hash:8]&#xFF08;8&#x4F4D;&#x957F;&#x5EA6;&#x7684;hash&#xFF09;</li>
+</ul>
+<h2 id="3-webpack&#x51CF;&#x5C0F;&#x6253;&#x5305;&#x6587;&#x4EF6;&#x4F53;&#x79EF;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;"><a href="#3-webpack&#x51CF;&#x5C0F;&#x6253;&#x5305;&#x6587;&#x4EF6;&#x4F53;&#x79EF;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;" class="headerlink" title="3.webpack&#x51CF;&#x5C0F;&#x6253;&#x5305;&#x6587;&#x4EF6;&#x4F53;&#x79EF;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;"></a>3.webpack&#x51CF;&#x5C0F;&#x6253;&#x5305;&#x6587;&#x4EF6;&#x4F53;&#x79EF;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;</h2><h3 id="1-&#x63D0;&#x53D6;&#x516C;&#x5171;&#x5E93;&#x6587;&#x4EF6;"><a href="#1-&#x63D0;&#x53D6;&#x516C;&#x5171;&#x5E93;&#x6587;&#x4EF6;" class="headerlink" title="(1) &#x63D0;&#x53D6;&#x516C;&#x5171;&#x5E93;&#x6587;&#x4EF6;"></a>(1) &#x63D0;&#x53D6;&#x516C;&#x5171;&#x5E93;&#x6587;&#x4EF6;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">  <span class="attr">entry</span>: {</div><div class="line">    <span class="attr">bundle</span>: <span class="string">&apos;app&apos;</span></div><div class="line">  },</div><div class="line">  <span class="attr">output</span>: {</div><div class="line">    <span class="attr">path</span>: <span class="string">&apos;build&apos;</span>,</div><div class="line">    <span class="attr">filename</span>: <span class="string">&apos;[name].js&apos;</span></div><div class="line">  },</div><div class="line">  <span class="attr">plugins</span>: [</div><div class="line">    {</div><div class="line">       <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="string">&apos;vendor.js&apos;</span>);</div><div class="line">    }</div><div class="line">  ]</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x4F1A;&#x5728;build&#x76EE;&#x5F55;&#x4E0B;&#x6253;&#x5305;&#x51FA;&#x516C;&#x5171;&#x6587;&#x4EF6;vendor.js</p>
+<h3 id="2-&#x4EE3;&#x7801;&#x538B;&#x7F29;"><a href="#2-&#x4EE3;&#x7801;&#x538B;&#x7F29;" class="headerlink" title="(2)&#x4EE3;&#x7801;&#x538B;&#x7F29;"></a>(2)&#x4EE3;&#x7801;&#x538B;&#x7F29;</h3><p>webpack&#x81EA;&#x5E26;&#x7684;&#x6587;&#x4EF6;&#x538B;&#x7F29;&#x63D2;&#x4EF6;&#x914D;&#x7F6E;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">plugins: [</div><div class="line">  <span class="keyword">new</span> webpack.optimize.UglifyJsPlugin({</div><div class="line">      <span class="attr">minimize</span>: <span class="literal">true</span></div><div class="line">  })</div><div class="line">]</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/19/编程/h5-base库-像写pc一样写h5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          h5-base库-像写pc一样写h5
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/04/编程/移动端预览pdf解决方案/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">移动端pdf预览解决方案</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="工具/webpack打包输出JS过大分析" data-title="webpack打包输出JS文件过大" data-url="http://keycode.me/2016/07/05/工具/webpack打包输出JS过大分析/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"jwg0428"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] || document.querySelector('body')[0]).appendChild(ds);
+
+		setTimeout(function(){
+		  document.querySelector(".ds-powered-by").innerHTML = '<a href="http://duoshuo.com" target="_blank" rel="nofollow">多说</a>';
+		},500);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+
+
+
+</div>
+      <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 King
+    	</div>
+    	<div class="footer-right">
+    		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+    	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>

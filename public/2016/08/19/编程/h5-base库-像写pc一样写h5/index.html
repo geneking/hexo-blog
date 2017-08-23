@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta name="baidu-site-verification" content="JpSPQPoUSx" />
+  <meta name="sogou_site_verification" content="77Vy4VMnmX"/>
+  <meta name="360-site-verification" content="34e66bd2c9beeca05bfca6b2ec99faae" />
+  <title>h5-base库-像写pc一样写h5 | King的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#x524D;&amp;#x6BB5;&amp;#x65F6;&amp;#x95F4;&amp;#x603B;&amp;#x7ED3;&amp;#x5B8C;&amp;#x5584;&amp;#x4E86;&amp;#x4E00;&amp;#x4E2A;H5&amp;#x7684;&amp;#x57FA;&amp;#x7840;&amp;#x51FD;&amp;#x6570;&amp;#x5E93;,&amp;#x5305;&amp;#x62EC;&amp;#x5E38;&amp;#x7528;&amp;#x76">
+<meta property="og:type" content="article">
+<meta property="og:title" content="h5-base库-像写pc一样写h5">
+<meta property="og:url" content="http://keycode.me/2016/08/19/编程/h5-base库-像写pc一样写h5/index.html">
+<meta property="og:site_name" content="King的博客">
+<meta property="og:description" content="&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#x524D;&amp;#x6BB5;&amp;#x65F6;&amp;#x95F4;&amp;#x603B;&amp;#x7ED3;&amp;#x5B8C;&amp;#x5584;&amp;#x4E86;&amp;#x4E00;&amp;#x4E2A;H5&amp;#x7684;&amp;#x57FA;&amp;#x7840;&amp;#x51FD;&amp;#x6570;&amp;#x5E93;,&amp;#x5305;&amp;#x62EC;&amp;#x5E38;&amp;#x7528;&amp;#x76">
+<meta property="og:image" content="http://keycode.me/2016/08/19/编程/h5-base库-像写pc一样写h5/h5-base.png">
+<meta property="og:updated_time" content="2017-01-30T15:55:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="h5-base库-像写pc一样写h5">
+<meta name="twitter:description" content="&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#x524D;&amp;#x6BB5;&amp;#x65F6;&amp;#x95F4;&amp;#x603B;&amp;#x7ED3;&amp;#x5B8C;&amp;#x5584;&amp;#x4E86;&amp;#x4E00;&amp;#x4E2A;H5&amp;#x7684;&amp;#x57FA;&amp;#x7840;&amp;#x51FD;&amp;#x6570;&amp;#x5E93;,&amp;#x5305;&amp;#x62EC;&amp;#x5E38;&amp;#x7528;&amp;#x76">
+<meta name="twitter:image" content="http://keycode.me/2016/08/19/编程/h5-base库-像写pc一样写h5/h5-base.png">
+  
+    <link rel="alternative" href="/atom.xml" title="King的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<script type="text/javascript">
+//百度统计代码
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?6fe6ea647a61d874adb96c0ddf336518";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);s
+})();
+
+window.onload = function(){
+  var winW = window.screen.width;
+  //给首页添加背景音乐
+  if(location.href.replace('www.','').split(".")[1]==="me/" && winW>750){
+     var music = '<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=0 src="http://music.163.com/outchain/player?type=2&id=33035577&auto=1&height=66"></iframe>';
+     $("body").append(music);
+  }
+  //移动端隐移除访问量统计
+  if(winW < 750){
+    $("#count-pv").remove();
+    $("#footer .outer").css({width:"auto",height:"auto"});
+    $(".footer-right").hide();
+  }
+};
+</script>
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://q2.qlogo.cn/g?b=qq&amp;k=jQ8PibVoL3AQORC8WO0ToIw&amp;s=640&amp;t=1479222618" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">King</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">首 页</a></li>
+				        
+							<li><a href="/categories/编程">编 程</a></li>
+				        
+							<li><a href="/categories/工具">工 具</a></li>
+				        
+							<li><a href="/categories/随笔">随 笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/geneking" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="mailto:798757301@qq.com" title="mail">mail</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CodeReview/" style="font-size: 10px;">CodeReview</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/h5/" style="font-size: 10px;">h5</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/react-native/" style="font-size: 15px;">react native</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/前后端分离/" style="font-size: 10px;">前后端分离</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/重构/" style="font-size: 10px;">重构</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/xxcanghai">小小沧海</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://snaile.blog.51cto.com/">默守陈归</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://truilin.com/">Truilin</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://haha.tk/">HaHa</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">91年汉子一枚，毕业后一直从事前端相关工作，平时喜欢摄影、音乐、游泳，也喜欢旅游</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">King</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://q2.qlogo.cn/g?b=qq&amp;k=jQ8PibVoL3AQORC8WO0ToIw&amp;s=640&amp;t=1479222618" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">King</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">首 页</a></li>
+		        
+					<li><a href="/categories/编程">编 程</a></li>
+		        
+					<li><a href="/categories/工具">工 具</a></li>
+		        
+					<li><a href="/categories/随笔">随 笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/geneking" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="mailto:798757301@qq.com" title="mail">mail</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-编程/h5-base库-像写pc一样写h5" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/19/编程/h5-base库-像写pc一样写h5/" class="article-date">
+  	<time datetime="2016-08-18T16:00:00.000Z" itemprop="datePublished">2016-08-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      h5-base库-像写pc一样写h5
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/h5/">h5</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/编程/">编程</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#xA0;&#xA0;&#xA0;&#xA0;&#x524D;&#x6BB5;&#x65F6;&#x95F4;&#x603B;&#x7ED3;&#x5B8C;&#x5584;&#x4E86;&#x4E00;&#x4E2A;H5&#x7684;&#x57FA;&#x7840;&#x51FD;&#x6570;&#x5E93;,&#x5305;&#x62EC;&#x5E38;&#x7528;&#x7684;&#x5DE5;&#x5177;&#x51FD;&#x6570;&#xFF0C;&#x53CA;&#x4E00;&#x4E9B;&#x5C0F;&#x7EC4;&#x4EF6;&#xFF0C;&#x6700;&#x7EC8;&#x7528;gulp&#x5C06;zepto&#x548C;common&#x5E93;&#x6253;&#x5305;&#x6210;h5-base.js&#x548C;h5-base.css&#x5927;&#x5BB6;&#x6709;&#x5174;&#x8DA3;&#x7684;&#x53EF;&#x4EE5;&#x5728;git&#x4E0A;&#x8865;&#x5145;&#xFF0C;&#x4EE5;&#x540E;&#x7684;&#x60F3;&#x6CD5;&#x662F;&#x505A;&#x6210;&#x50CF;jquery-ui&#x4E00;&#x6837;&#x53EF;&#x5B9A;&#x5236;&#x751F;&#x6210;base&#x5E93;&#xFF0C;&#x9700;&#x8981;zepto&#x6253;&#x5305;zepto,&#x4F9D;&#x8D56;jquery&#x6253;&#x5305;jquery&#x7B49;&#x3002;</p>
+<h2 id="&#x4E00;&#x3001;&#x51FD;&#x6570;&#x5217;&#x8868;"><a href="#&#x4E00;&#x3001;&#x51FD;&#x6570;&#x5217;&#x8868;" class="headerlink" title="&#x4E00;&#x3001;&#x51FD;&#x6570;&#x5217;&#x8868;"></a>&#x4E00;&#x3001;&#x51FD;&#x6570;&#x5217;&#x8868;</h2><ul>
+<li>p2m                   px=&gt;rem&#x7684;&#x9002;&#x914D;</li>
+<li>getUrlparam           &#x83B7;&#x53D6;url&#x53C2;&#x6570;</li>
+<li>getDataUrl            &#x83B7;&#x53D6;&#x56FE;&#x7247;base64&#x7F16;&#x7801;</li>
+<li>judgePlat             &#x5224;&#x65AD;&#x5E73;&#x53F0;&#x7C7B;&#x578B;</li>
+<li>isAndroid             &#x5224;&#x65AD;&#x662F;&#x5426;&#x4E3A;&#x5B89;&#x5353;&#x8BBE;&#x5907;</li>
+<li>isIOS                 &#x5224;&#x65AD;&#x662F;&#x5426;&#x4E3A;IOS&#x8BBE;&#x5907;</li>
+<li>setCookie             &#x8BBE;&#x7F6E;cookie</li>
+<li>getCookie             &#x83B7;&#x53D6;cookie</li>
+<li>delCookie             &#x5220;&#x9664;cookie</li>
+<li>getPhoneCode          &#x83B7;&#x53D6;&#x624B;&#x673A;&#x9A8C;&#x8BC1;&#x7801;</li>
+<li>delayGo               &#x5EF6;&#x8FDF;&#x5904;&#x7406;/&#x8DF3;&#x8F6C;<a id="more"></a></li>
+<li>cutContent            &#x5B57;&#x7B26;&#x4E32;&#x622A;&#x53D6;</li>
+<li>toast toast           &#x5F39;&#x5C42;</li>
+<li>listenNet             &#x76D1;&#x542C;&#x7F51;&#x7EDC;&#x72B6;&#x6001;&#x8FDE;&#x63A5;</li>
+<li>orientation           &#x65CB;&#x8F6C;&#x5C4F;&#x5E55;&#x540E;&#x5237;&#x65B0;&#x9875;&#x9762;</li>
+<li>confirm               confirm&#x5F39;&#x5C42;</li>
+<li>animArrow             &#x5411;&#x4E0B;&#x6ED1;&#x52A8;&#x6307;&#x793A;&#x7BAD;&#x5934;</li>
+<li>downloadApp           banner&#x4E0B;&#x8F7D;</li>
+<li>rotateTip             &#x6A2A;&#x7AD6;&#x5C4F;&#x5207;&#x6362;&#x63D0;&#x793A;</li>
+<li>shareWx               &#x5206;&#x4EAB;&#x5230;&#x5FAE;&#x4FE1;&#x914D;&#x7F6E;<h2 id="&#x4E8C;&#x3001;&#x5C4F;&#x5E55;&#x9002;&#x914D;"><a href="#&#x4E8C;&#x3001;&#x5C4F;&#x5E55;&#x9002;&#x914D;" class="headerlink" title="&#x4E8C;&#x3001;&#x5C4F;&#x5E55;&#x9002;&#x914D;"></a>&#x4E8C;&#x3001;&#x5C4F;&#x5E55;&#x9002;&#x914D;</h2><h3 id="1-&#x5C4F;&#x5E55;&#x7684;&#x9002;&#x914D;&#x4E3B;&#x8981;&#x5728;&#x5BF9;&#x5E94;&#x9875;&#x9762;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x8C03;&#x7528;p2m&#x5B8C;&#x6210;"><a href="#1-&#x5C4F;&#x5E55;&#x7684;&#x9002;&#x914D;&#x4E3B;&#x8981;&#x5728;&#x5BF9;&#x5E94;&#x9875;&#x9762;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x8C03;&#x7528;p2m&#x5B8C;&#x6210;" class="headerlink" title="1.&#x5C4F;&#x5E55;&#x7684;&#x9002;&#x914D;&#x4E3B;&#x8981;&#x5728;&#x5BF9;&#x5E94;&#x9875;&#x9762;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x8C03;&#x7528;p2m&#x5B8C;&#x6210;"></a>1.&#x5C4F;&#x5E55;&#x7684;&#x9002;&#x914D;&#x4E3B;&#x8981;&#x5728;&#x5BF9;&#x5E94;&#x9875;&#x9762;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x8C03;&#x7528;p2m&#x5B8C;&#x6210;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* viewport&#x7F29;&#x653E;,px&#x8F6C;rem</div><div class="line">* @function p2m</div><div class="line">* @param {designW:&#x8BBE;&#x8BA1;&#x7A3F;&#x5C3A;&#x5BF8;&#xFF0C;&#x4E00;&#x822C;&#x4E3A;640px/750px}</div><div class="line">**/</div><div class="line">MT.p2m = <span class="function"><span class="keyword">function</span>(<span class="params">designW</span>)</span>{</div><div class="line">  <span class="keyword">var</span> resizeNum = <span class="number">0</span>,</div><div class="line">      timer     = <span class="literal">null</span>,</div><div class="line">      winW      = <span class="built_in">window</span>.innerWidth;</div><div class="line">  <span class="keyword">var</span> resize = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">    <span class="keyword">var</span> clientW = <span class="built_in">document</span>.body.clientWidth;</div><div class="line">    clearTimeout(timer);</div><div class="line">    <span class="keyword">if</span> (clientW &gt; <span class="number">414</span>) {</div><div class="line">      winW = <span class="number">414</span>;</div><div class="line">      MT.TOUCH_START = <span class="string">&quot;click&quot;</span>;</div><div class="line">      MT.TOUCH_END = <span class="string">&quot;click&quot;</span>;</div><div class="line">    }</div><div class="line">    <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;html&quot;</span>)[<span class="number">0</span>].style.fontSize = (winW/designW)*<span class="number">100</span> + <span class="string">&quot;px&quot;</span>;</div><div class="line">    <span class="keyword">if</span> (winW &gt; clientW &amp;&amp; resizeNum &lt;= <span class="number">10</span>) {</div><div class="line">      timer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">        resize(++resizeNum);</div><div class="line">      }, <span class="number">100</span>);</div><div class="line">    } <span class="keyword">else</span> {</div><div class="line">      <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;body&quot;</span>)[<span class="number">0</span>].style.opacity = <span class="number">1</span>;</div><div class="line">    }</div><div class="line">  }</div><div class="line">  resize();</div><div class="line">  <span class="built_in">window</span>.onresize = resize;</div><div class="line">};</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2-&#x9002;&#x914D;&#x8FC7;&#x7A0B;"><a href="#2-&#x9002;&#x914D;&#x8FC7;&#x7A0B;" class="headerlink" title="2.&#x9002;&#x914D;&#x8FC7;&#x7A0B;"></a>2.&#x9002;&#x914D;&#x8FC7;&#x7A0B;</h3><ul>
+<li>&#x4ECE;p2m&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x6709;&#x4E2A;&#x52A8;&#x6001;&#x53C2;&#x6570;designW&#xFF0C;&#x4E00;&#x822C;&#x6765;&#x8BF4;&#x8BBE;&#x8BA1;&#x7A3F;&#x5C3A;&#x5BF8;&#x4E3A;640px&#x6216;750px&#xFF0C;&#x8FD9;&#x4E2A;&#x6309;&#x7167;&#x5177;&#x4F53;&#x60C5;&#x51B5;&#x4F20;&#x5BF9;&#x5E94;&#x7684;&#x53C2;&#x6570;&#xFF1B;</li>
+<li>&#x4EE5;1rem=100px&#x505A;&#x9002;&#x914D;&#xFF0C;&#x6211;&#x4EEC;&#x77E5;&#x9053;iphone6+&#x7684;&#x903B;&#x8F91;&#x5206;&#x8FA8;&#x7387;&#x4E3A;414*736,&#x5176;&#x4ED6;&#x79FB;&#x52A8;&#x8BBE;&#x5907;&#x4E5F;&#x5927;&#x4E0D;&#x76F8;&#x540C;&#xFF0C;&#x6240;&#x4EE5;&#x65E0;&#x6CD5;&#x505A;&#x5230;&#x4E0E;&#x8BBE;&#x8BA1;&#x7A3F;&#x7684;&#x5BF9;&#x5E94;&#xFF0C;&#x6240;&#x4EE5;&#x8981;&#x505A;&#x4E00;&#x4E2A;&#x6BD4;&#x7387;&#x7684;&#x7F29;&#x653E;&#xFF0C;&#x5373;      (winW/designW)x100&#xFF0C;rem&#x662F;&#x4EE5;&#x6839;&#x8282;&#x70B9;&#x4E3A;&#x57FA;&#x51C6;&#xFF0C;&#x6240;&#x4EE5;&#x53EA;&#x5904;&#x7406;html&#x8282;&#x70B9;&#xFF1B;</li>
+<li>&#x56E0;&#x4E3A;&#x79FB;&#x52A8;&#x7AEF;viewport&#x7684;&#x5BBD;&#x5EA6;&#x5E73;&#x5E38;&#x5927;&#x4E8E;&#x8BBE;&#x5907;&#x5BBD;&#x5EA6;&#xFF0C;&#x6240;&#x4EE5;&#x4EE5;&#x8FD9;&#x4E2A;&#x4E3A;&#x5224;&#x5B9A;&#x6761;&#x4EF6;&#x4E4B;&#x4E00;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x8BA1;&#x7B97;10&#x6B21;&#x5462;&#xFF0C;&#x662F;&#x56E0;&#x4E3A;&#x4E00;&#x6B21;&#x5728;&#x4F4E;&#x914D;&#x624B;&#x673A;&#x4E0A;&#x53EF;&#x80FD;&#x4F1A;&#x9002;&#x914D;&#x5931;&#x8D25;&#xFF1B;</li>
+<li>&#x5BF9;&#x4E8E;pc&#x7AEF;&#x7684;&#x517C;&#x5BB9;&#xFF0C;&#x5F53;&#x8BBE;&#x5907;&#x5C3A;&#x5BF8;&#x5927;&#x4E8E;414&#x65F6;&#xFF0C;&#x6587;&#x6863;&#x9ED8;&#x8BA4;414&#x5BBD;&#x5EA6;&#xFF0C;touch&#x4E8B;&#x4EF6;&#x53D8;&#x66F4;&#x6210;click&#x4E8B;&#x4EF6;&#xFF1B;</li>
+</ul>
+<h2 id="&#x4E09;&#x3001;&#x8C03;&#x7528;&#x65B9;&#x6CD5;"><a href="#&#x4E09;&#x3001;&#x8C03;&#x7528;&#x65B9;&#x6CD5;" class="headerlink" title="&#x4E09;&#x3001;&#x8C03;&#x7528;&#x65B9;&#x6CD5;"></a>&#x4E09;&#x3001;&#x8C03;&#x7528;&#x65B9;&#x6CD5;</h2><h3 id="1-meta&#x8BBE;&#x7F6E;"><a href="#1-meta&#x8BBE;&#x7F6E;" class="headerlink" title="1.meta&#x8BBE;&#x7F6E;"></a>1.meta&#x8BBE;&#x7F6E;</h3><p>&#x4E00;&#x822C;H5&#x9875;&#x9762;&#x6211;&#x4EEC;&#x7981;&#x6B62;&#x7F29;&#x653E;</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no&quot;</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;./dist/h5-base.min.css&quot;</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;./dist/css/index.css&quot;</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;./dist/h5-base.min.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="2-body&#x7684;&#x9ED8;&#x8BA4;opacity"><a href="#2-body&#x7684;&#x9ED8;&#x8BA4;opacity" class="headerlink" title="2.body&#x7684;&#x9ED8;&#x8BA4;opacity"></a>2.body&#x7684;&#x9ED8;&#x8BA4;opacity</h3><p>&#x9ED8;&#x8BA4;&#x4E3A;0(&#x53EF;&#x67E5;&#x770B;h5-base.ccss)&#xFF0C;&#x9002;&#x914D;&#x5B8C;&#x6210;&#x540E;&#x8BBE;&#x4E3A;1&#xFF0C;&#x907F;&#x514D;&#x9002;&#x914D;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;&#x95EA;&#x5C4F;&#x73B0;&#x8C61;&#xFF1B;</p>
+<h3 id="3-&#x521D;&#x59CB;&#x5316;&#x8C03;&#x7528;&#x9002;&#x914D;&#x65B9;&#x6CD5;"><a href="#3-&#x521D;&#x59CB;&#x5316;&#x8C03;&#x7528;&#x9002;&#x914D;&#x65B9;&#x6CD5;" class="headerlink" title="3.&#x521D;&#x59CB;&#x5316;&#x8C03;&#x7528;&#x9002;&#x914D;&#x65B9;&#x6CD5;"></a>3.&#x521D;&#x59CB;&#x5316;&#x8C03;&#x7528;&#x9002;&#x914D;&#x65B9;&#x6CD5;</h3><ul>
+<li><font color="red">&#x5728;&#x9875;&#x9762;&#x521D;&#x59CB;&#x5316;&#x65F6;&#xFF0C;&#x9700;&#x8C03;&#x7528;MT.p2m&#x65B9;&#x6CD5;&#x5B8C;&#x6210;&#x5C4F;&#x5E55;&#x9002;&#x914D;</font>;</li>
+<li>&#x5982;&#x9700;&#x8C03;&#x7528;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#xFF0C;&#x4E5F;&#x7528;&#x201C;MT.&#x65B9;&#x6CD5;&#x540D;&#x201D;&#x53BB;&#x8C03;&#x7528;;</li>
+<li>&#x7531;&#x4E8E;&#x5BF9;PC&#x7AEF;&#x505A;&#x4E86;&#x4E8B;&#x4EF6;&#x517C;&#x5BB9;&#xFF0C;&#x6240;&#x4EE5;&#x8C03;&#x7528;&#x201D;touchstart&#x201D;&#x6216;&#x201D;touchend&#x201D;&#x65F6;&#x5E94;&#x8BE5;&#x7528;&#x201D;MT.TOUCH_START&#x201D;&#x548C;&#x201D;MT.TOUCH_END&#x201D;</li>
+<li><font color="red">&#x5199;CSS&#x5168;&#x7528;rem&#x505A;&#x5355;&#x4F4D;&#xFF0C;&#x4EE5;1rem&#xFF1A;100px&#x7684;&#x57FA;&#x51C6;&#x53BB;&#x5199;</font>
+
+</li>
+</ul>
+<h3 id="4-&#x6CE8;&#x610F;"><a href="#4-&#x6CE8;&#x610F;" class="headerlink" title="4.&#x6CE8;&#x610F;"></a>4.&#x6CE8;&#x610F;</h3><ul>
+<li>&#x6240;&#x7528;&#x65B9;&#x6CD5;&#x90FD;&#x8D4B;&#x503C;&#x5728;window&#x57DF;&#x4E0B;&#x7684;MT&#x5BF9;&#x8C61;&#x4E0A;&#xFF0C;&#x6240;&#x4EE5;&#x7981;&#x6B62;window&#x57DF;&#x4E0B;&#x64CD;&#x4F5C;MT&#x6216;&#x8005;&#x58F0;&#x660E;MT;</li>
+<li>&#x7981;&#x6B62;&#x64CD;&#x4F5C;html&#x5B57;&#x4F53;&#x5927;&#x5C0F;;</li>
+</ul>
+<h2 id="&#x56DB;&#x3001;&#x9879;&#x76EE;github-&#x542B;demo"><a href="#&#x56DB;&#x3001;&#x9879;&#x76EE;github-&#x542B;demo" class="headerlink" title="&#x56DB;&#x3001;&#x9879;&#x76EE;github(&#x542B;demo)"></a>&#x56DB;&#x3001;&#x9879;&#x76EE;github(&#x542B;demo)</h2><ul>
+<li><a href="https://github.com/geneking/h5-base" target="_blank" rel="external">https://github.com/geneking/h5-base</a></li>
+<li><img src="/2016/08/19/&#x7F16;&#x7A0B;/h5-base&#x5E93;-&#x50CF;&#x5199;pc&#x4E00;&#x6837;&#x5199;h5/h5-base.png" alt="h5-base"></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/09/18/编程/怎么开发一个npm包/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          怎么开发一个npm包
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/07/05/工具/webpack打包输出JS过大分析/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">webpack打包输出JS文件过大</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="编程/h5-base库-像写pc一样写h5" data-title="h5-base库-像写pc一样写h5" data-url="http://keycode.me/2016/08/19/编程/h5-base库-像写pc一样写h5/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"jwg0428"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] || document.querySelector('body')[0]).appendChild(ds);
+
+		setTimeout(function(){
+		  document.querySelector(".ds-powered-by").innerHTML = '<a href="http://duoshuo.com" target="_blank" rel="nofollow">多说</a>';
+		},500);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+
+
+
+</div>
+      <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 King
+    	</div>
+    	<div class="footer-right">
+    		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+    	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>
