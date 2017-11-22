@@ -147,7 +147,7 @@ window.onload = function(){
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/CodeReview/" style="font-size: 10px;">CodeReview</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/h5/" style="font-size: 10px;">h5</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/react-native/" style="font-size: 15px;">react native</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/前后端分离/" style="font-size: 10px;">前后端分离</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/重构/" style="font-size: 10px;">重构</a>
+						<a href="/tags/CodeReview/" style="font-size: 10px;">CodeReview</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/h5/" style="font-size: 10px;">h5</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/react-native/" style="font-size: 15px;">react native</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/前后端分离/" style="font-size: 10px;">前后端分离</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/重构/" style="font-size: 10px;">重构</a>
 					</div>
 				</section>
 				
@@ -229,6 +229,68 @@ window.onload = function(){
 
       <div class="body-wrap">
   
+    <article id="post-编程/XSS攻击那些事儿" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/21/编程/XSS攻击那些事儿/" class="article-date">
+  	<time datetime="2017-10-20T16:00:00.000Z" itemprop="datePublished">2017-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/21/编程/XSS攻击那些事儿/">XSS攻击那些事儿</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#xA0;&#xA0;&#xA0;&#xA0;2011&#x5E74;4&#x6708;30&#xFF0C;&#x4EBA;&#x4EBA;&#x7AD9;&#x5185;&#x4FE1;&#x906D;&#x53D7;XSS&#x653B;&#x51FB;&#x3002;&#x9020;&#x6210;&#x4EBA;&#x4EBA;ID&#x3001;&#x59D3;&#x540D;&#x3001;&#x5B66;&#x6821;&#x3001;&#x624B;&#x673A;&#x53F7;&#x3001;QQ&#x6CC4;&#x9732;<br>&#xA0;&#xA0;&#xA0;&#xA0;2011&#x5E74;6&#x6708;28&#x65E5;&#xFF0C;&#x65B0;&#x6D6A;&#x5FAE;&#x535A;&#x906D;&#x53D7;XSS&#x653B;&#x51FB;&#xFF0C;&#x5FAE;&#x535A;&#x7528;&#x6237;&#x4E2D;&#x62DB;&#x540E;&#x4F1A;&#x81EA;&#x52A8;&#x5411;&#x81EA;&#x5DF1;&#x7684;&#x7C89;&#x4E1D;&#x53D1;&#x9001;&#x542B;&#x6BD2;&#x79C1;&#x4FE1;&#x548C;&#x5FAE;&#x535A;&#xFF0C;&#x6709;&#x4EBA;&#x70B9;&#x51FB;&#x540E;&#x4F1A;&#x518D;&#x6B21;&#x4E2D;&#x6BD2;&#xFF0C;&#x5F62;&#x6210;&#x6076;&#x6027;&#x5FAA;&#x73AF;</p>
+<h2 id="&#x4E00;&#x3001;XSS&#x653B;&#x51FB;&#x4ECB;&#x7ECD;"><a href="#&#x4E00;&#x3001;XSS&#x653B;&#x51FB;&#x4ECB;&#x7ECD;" class="headerlink" title="&#x4E00;&#x3001;XSS&#x653B;&#x51FB;&#x4ECB;&#x7ECD;"></a>&#x4E00;&#x3001;XSS&#x653B;&#x51FB;&#x4ECB;&#x7ECD;</h2><h3 id="1-&#x4ECB;&#x7ECD;"><a href="#1-&#x4ECB;&#x7ECD;" class="headerlink" title="1.&#x4ECB;&#x7ECD;"></a>1.&#x4ECB;&#x7ECD;</h3><p>&#xA0;&#xA0;&#xA0;&#xA0;&#x8DE8;&#x7AD9;&#x811A;&#x672C;&#x653B;&#x51FB;&#xFF08;Cross Site Scripting&#xFF09;,XSS&#x653B;&#x51FB;&#x901A;&#x5E38;&#x6307;&#x7684;&#x662F;&#x901A;&#x8FC7;&#x5229;&#x7528;&#x7F51;&#x9875;&#x5F00;&#x53D1;&#x65F6;&#x7559;&#x4E0B;&#x7684;&#x6F0F;&#x6D1E;&#xFF0C;&#x6076;&#x610F;&#x653B;&#x51FB;&#x8005;&#x5F80;Web&#x9875;&#x9762;&#x91CC;&#x63D2;&#x5165;&#x6076;&#x610F;Script&#x4EE3;&#x7801;&#xFF0C;&#x5F53;&#x7528;&#x6237;&#x6D4F;&#x89C8;&#x65F6;&#xFF0C;&#x5D4C;&#x5165;&#x5176;&#x4E2D;Web&#x91CC;&#x9762;&#x7684;Script&#x4EE3;&#x7801;&#x4F1A;&#x88AB;&#x6267;&#x884C;&#xFF0C;&#x4ECE;&#x800C;&#x8FBE;&#x5230;&#x6076;&#x610F;&#x653B;&#x51FB;&#x7528;&#x6237;&#x7684;&#x76EE;&#x7684;</p>
+<h3 id="2-&#x5371;&#x5BB3;"><a href="#2-&#x5371;&#x5BB3;" class="headerlink" title="2.&#x5371;&#x5BB3;"></a>2.&#x5371;&#x5BB3;</h3><p>&#xA0;&#xA0;&#xA0;&#xA0;&#x636E;&#x8FD1;&#x4E9B;&#x5E74;OWASP(OWASP&#x662F;&#x4E16;&#x754C;&#x4E0A;&#x6700;&#x77E5;&#x540D;&#x7684;Web&#x5B89;&#x5168;&#x4E0E;&#x6570;&#x636E;&#x5E93;&#x5B89;&#x5168;&#x7814;&#x7A76;&#x7EC4;&#x7EC7;)&#x7EDF;&#x8BA1;XSS&#x5360;&#x6240;&#x6709;web&#x653B;&#x51FB;&#x7684;22%&#xFF0C;&#x9AD8;&#x5C45;&#x6240;&#x6709;web&#x5A01;&#x80C1;&#x699C;&#x9996;<br></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XSS/">XSS</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/编程/">编程</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/10/21/编程/XSS攻击那些事儿/#more">更多&nbsp; >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+  
     <article id="post-编程/React的JSX语法简单支持if判断" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -293,10 +355,6 @@ window.onload = function(){
 
 
 
-
-
-
-
   
     <article id="post-编程/轻量级前后端分离方案GadFly" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -352,10 +410,6 @@ window.onload = function(){
   </div>
   
 </article>
-
-
-
-
 
 
 
@@ -426,10 +480,6 @@ window.onload = function(){
 
 
 
-
-
-
-
   
     <article id="post-编程/Web应用log输出留后门" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -493,88 +543,10 @@ window.onload = function(){
 
 
 
-
-
-
-
-  
-    <article id="post-编程/进行CodeReview的必要性" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/02/23/编程/进行CodeReview的必要性/" class="article-date">
-  	<time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/23/编程/进行CodeReview的必要性/">进行Code Review的必要性</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&#xA0;&#xA0;&#xA0;&#xA0;Code Review &#x6216;&#x8BB8;&#x5BF9;&#x4E8E;&#x4ECE;&#x4E8B;&#x6280;&#x672F;&#x5F00;&#x53D1;&#x5DE5;&#x4F5C;&#x7684;&#x540C;&#x5B66;&#x6765;&#x8BF4;&#x5E76;&#x4E0D;&#x964C;&#x751F;&#xFF0C;&#x57FA;&#x4E8E;&#x4EE5;&#x5F80;&#x7684;&#x5DE5;&#x4F5C;&#x7ECF;&#x9A8C;&#x548C;&#x4E2A;&#x4EBA;&#x60F3;&#x6CD5;&#xFF0C;&#x8C08;&#x8C08;&#x4E2A;&#x4EBA;&#x7684;&#x7406;&#x89E3;&#x548C;&#x770B;&#x6CD5;&#xFF0C;&#x6709;&#x95EE;&#x9898;&#x8FD8;&#x8BF7;&#x4E00;&#x8D77;&#x8BA8;&#x8BBA;&#x3002;</p>
-<h2 id="&#x4E00;&#x3001;Code-Review&#x7684;&#x80CC;&#x666F;"><a href="#&#x4E00;&#x3001;Code-Review&#x7684;&#x80CC;&#x666F;" class="headerlink" title="&#x4E00;&#x3001;Code Review&#x7684;&#x80CC;&#x666F;"></a>&#x4E00;&#x3001;Code Review&#x7684;&#x80CC;&#x666F;</h2><ul>
-<li>&#x5F88;&#x591A;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5BF9;&#x4E8E;&#x6709;&#x4E00;&#x5B9A;&#x7684;&#x7F16;&#x7A0B;&#x57FA;&#x7840;&#xFF0C;&#x6CA1;&#x6709;&#x63A5;&#x89E6;&#x8FC7;&#x592A;&#x591A;&#x5B9E;&#x9645;&#x9879;&#x76EE;&#x7684;&#x5E94;&#x5C4A;&#x751F;&#x6216;&#x8005;&#x5B9E;&#x4E60;&#x751F;&#xFF0C;&#x90FD;&#x4F1A;&#x6709;&#x7531;&#x4E00;&#x4E2A;Mentor&#x6765;&#x5E26;&#x3002;&#x9664;&#x4E86;&#x65E5;&#x5E38;&#x5DE5;&#x4F5C;&#x4E2D;&#x7684;&#x6307;&#x5BFC;&#xFF0C;code review&#x662F;&#x5FC5;&#x7136;&#x7684;&#xFF1B;</li>
-<li>code review &#x4E5F;&#x4E0D;&#x4EC5;&#x4EC5;&#x9762;&#x5411;&#x65B0;&#x624B;&#xFF0C;&#x5BF9;&#x4E8E;&#x4E00;&#x4E9B;&#x6838;&#x5FC3;&#x7CFB;&#x7EDF;&#xFF0C;&#x907F;&#x514D;&#x4E0A;&#x7EBF;&#x540E;&#x51FA;&#x73B0;&#x95EE;&#x9898;&#x6216;&#x8005;&#x6027;&#x80FD;&#x65B9;&#x9762;&#x7684;&#x8003;&#x8651;&#xFF0C;&#x4E5F;&#x4F1A;&#x7531;&#x5148;&#x5173;&#x4E1A;&#x52A1;&#x4EBA;&#x5458;&#x8FDB;&#x884C;&#x4EA4;&#x53C9;code review&#xFF0C;&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x63D0;&#x5230;&#x7684;&#x662F;&#x76F8;&#x5173;&#x4E1A;&#x52A1;&#x4EBA;&#x5458;&#xFF0C;&#x56E0;&#x4E3A;&#x4E0D;&#x719F;&#x6089;&#x4E1A;&#x52A1;&#x4EE3;&#x7801;&#x8FDB;&#x884C;review&#x7684;&#x6210;&#x672C;&#x662F;&#x6602;&#x8D35;&#x7684;&#xFF1B;</li>
-<li>&#x4E3A;&#x4E86;&#x6574;&#x4E2A;Team&#x7684;&#x4EE3;&#x7801;&#x98CE;&#x683C;&#x548C;&#x4EE3;&#x7801;&#x8D28;&#x91CF;&#xFF0C;code review&#x4E5F;&#x662F;&#x5FC5;&#x8981;&#x7684;&#xFF1B;</li>
-</ul>
-<h2 id="&#x4E8C;&#x3001;&#x4E3A;&#x4EC0;&#x4E48;&#x6211;&#x4EEC;&#x653E;&#x5F03;&#x4E86;Code-Review"><a href="#&#x4E8C;&#x3001;&#x4E3A;&#x4EC0;&#x4E48;&#x6211;&#x4EEC;&#x653E;&#x5F03;&#x4E86;Code-Review" class="headerlink" title="&#x4E8C;&#x3001;&#x4E3A;&#x4EC0;&#x4E48;&#x6211;&#x4EEC;&#x653E;&#x5F03;&#x4E86;Code Review"></a>&#x4E8C;&#x3001;&#x4E3A;&#x4EC0;&#x4E48;&#x6211;&#x4EEC;&#x653E;&#x5F03;&#x4E86;Code Review</h2><ul>
-<li>&#x8FEB;&#x4E8E;&#x4E1A;&#x52A1;&#x7684;&#x538B;&#x529B;&#xFF0C;PM&#x53C8;&#x6765;&#x50AC;&#x8FDB;&#x5EA6;&#x4E86;&#xFF0C;&#x80FD;&#x5FEB;&#x70B9;&#x5C31;&#x5FEB;&#x70B9;&#xFF0C;&#x5B9E;&#x73B0;&#x529F;&#x80FD;&#x5C31;&#x597D;&#xFF1B;</li>
-<li>&#x53CD;&#x6B63;&#x8FD9;&#x5757;&#x4E1A;&#x52A1;&#x7531;&#x6211;&#x8D1F;&#x8D23;&#xFF0C;&#x6211;&#x80FD;&#x770B;&#x61C2;&#x5C31;&#x884C;&#xFF1B;</li>
-<li>&#x4EA4;&#x7ED9;&#x522B;&#x4EBA;code review&#xFF0C;&#x611F;&#x89C9;&#x6709;&#x70B9;&#x6D6A;&#x8D39;&#x522B;&#x4EBA;&#x7684;&#x65F6;&#x95F4;&#xFF1B;</li>
-<li>&#x5F53;&#x7136;&#x8FD8;&#x6709;&#x5F88;&#x6709;&#x5F88;&#x591A;&#x7406;&#x7531;&#x2026;</li></ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CodeReview/">CodeReview</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/编程/">编程</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/02/23/编程/进行CodeReview的必要性/#more">更多&nbsp; >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
     </nav>
   
 
