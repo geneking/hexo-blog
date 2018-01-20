@@ -147,7 +147,7 @@ window.onload = function(){
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/CodeReview/" style="font-size: 10px;">CodeReview</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/h5/" style="font-size: 10px;">h5</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/react-native/" style="font-size: 15px;">react native</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/前后端分离/" style="font-size: 10px;">前后端分离</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/重构/" style="font-size: 10px;">重构</a>
+						<a href="/tags/CodeReview/" style="font-size: 10px;">CodeReview</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/h5/" style="font-size: 10px;">h5</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 15px;">npm</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/react-native/" style="font-size: 15px;">react native</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/前后端分离/" style="font-size: 10px;">前后端分离</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/重构/" style="font-size: 10px;">重构</a>
 					</div>
 				</section>
 				
@@ -228,6 +228,76 @@ window.onload = function(){
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-编程/怎么开发一个npm包" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/18/编程/怎么开发一个npm包/" class="article-date">
+  	<time datetime="2016-09-17T16:00:00.000Z" itemprop="datePublished">2016-09-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/18/编程/怎么开发一个npm包/">怎么开发一个npm包</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="&#x4E00;&#x3001;&#x6CE8;&#x518C;npm&#x8D26;&#x53F7;"><a href="#&#x4E00;&#x3001;&#x6CE8;&#x518C;npm&#x8D26;&#x53F7;" class="headerlink" title="&#x4E00;&#x3001;&#x6CE8;&#x518C;npm&#x8D26;&#x53F7;"></a>&#x4E00;&#x3001;&#x6CE8;&#x518C;npm&#x8D26;&#x53F7;</h2><ul>
+<li>&#x600E;&#x4E48;&#x5C06;&#x4EE3;&#x7801;&#x63D0;&#x5230;github&#xFF0C;&#x5927;&#x5BB6;&#x90FD;&#x77E5;&#x9053;&#x9700;&#x8981;&#x4E00;&#x4E2A;github&#x8D26;&#x53F7;</li>
+<li>&#x540C;&#x6837;&#xFF0C;&#x5F00;&#x53D1;&#x4E00;&#x4E2A;npm&#x5305;&#xFF0C;&#x5F53;&#x7136;&#x4E5F;&#x9700;&#x8981;&#x4E00;&#x4E2A;npm&#x8D26;&#x53F7;&#xFF0C;&#x5C06;npm&#x5305;&#x53D1;&#x5E03;&#x5230;npm&#x7684;&#x6258;&#x7BA1;&#x670D;&#x52A1;&#x5668;</li>
+<li>&#x6CE8;&#x518C;&#x5730;&#x5740;&#xFF1A;<a href="http://npmjs.org">http://npmjs.org</a></li>
+<li>&#x8BE5;&#x5B9E;&#x4F8B;&#x5305;&#x542B;&#x4E86;&#x6A21;&#x5757;&#x7684;&#x5C40;&#x90E8;&#x8C03;&#x7528;&#x548C;&#x5168;&#x5C40;&#x8C03;&#x7528;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;</li>
+</ul>
+<h2 id="&#x4E8C;&#x3001;&#x5F00;&#x53D1;npm&#x5305;"><a href="#&#x4E8C;&#x3001;&#x5F00;&#x53D1;npm&#x5305;" class="headerlink" title="&#x4E8C;&#x3001;&#x5F00;&#x53D1;npm&#x5305;"></a>&#x4E8C;&#x3001;&#x5F00;&#x53D1;npm&#x5305;</h2><h3 id="1-&#x76EE;&#x5F55;&#x6784;&#x5EFA;"><a href="#1-&#x76EE;&#x5F55;&#x6784;&#x5EFA;" class="headerlink" title="1.&#x76EE;&#x5F55;&#x6784;&#x5EFA;"></a>1.&#x76EE;&#x5F55;&#x6784;&#x5EFA;</h3><ul>
+<li>npm init</li>
+<li>&#x9879;&#x76EE;&#x7ED3;&#x6784;&#xFF1A;<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">&#x251C;&#x2500;&#x2500; bin           <span class="comment">//&#x547D;&#x4EE4;&#x914D;&#x7F6E;</span></div><div class="line">&#x251C;&#x2500;&#x2500; README.md     <span class="comment">//&#x8BF4;&#x660E;&#x6587;&#x6863;</span></div><div class="line">&#x251C;&#x2500;&#x2500; index.js      <span class="comment">//&#x4E3B;&#x5165;&#x53E3;</span></div><div class="line">&#x251C;&#x2500;&#x2500; src           <span class="comment">//&#x529F;&#x80FD;&#x6587;&#x4EF6;</span></div><div class="line">&#x251C;&#x2500;&#x2500; package.json  <span class="comment">//&#x5305;&#x4FE1;&#x606F;</span></div><div class="line">&#x2514;&#x2500;&#x2500; test          <span class="comment">//&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/编程/">编程</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/09/18/编程/怎么开发一个npm包/#more">更多&nbsp; >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
   
     <article id="post-编程/h5-base库-像写pc一样写h5" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -490,70 +560,6 @@ window.onload = function(){
 
 
   
-    <article id="post-编程/分页加载与滚动加载设计的优缺点分析" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/08/编程/分页加载与滚动加载设计的优缺点分析/" class="article-date">
-  	<time datetime="2016-05-07T16:00:00.000Z" itemprop="datePublished">2016-05-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/08/编程/分页加载与滚动加载设计的优缺点分析/">分页加载与无限滚动加载的优缺点分析</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-&#x5206;&#x9875;&#x52A0;&#x8F7D;"><a href="#1-&#x5206;&#x9875;&#x52A0;&#x8F7D;" class="headerlink" title="1.&#x5206;&#x9875;&#x52A0;&#x8F7D;"></a>1.&#x5206;&#x9875;&#x52A0;&#x8F7D;</h2><h3 id="&#xFF08;1&#xFF09;&#x4F18;&#x70B9;"><a href="#&#xFF08;1&#xFF09;&#x4F18;&#x70B9;" class="headerlink" title="&#xFF08;1&#xFF09;&#x4F18;&#x70B9;"></a>&#xFF08;1&#xFF09;&#x4F18;&#x70B9;</h3><blockquote>
-<ul>
-<li>&#x53EF;&#x4EE5;&#x76F4;&#x89C2;&#x770B;&#x5230;&#x591A;&#x5C11;&#x9875;&#xFF0C;&#x548C;&#x5185;&#x5BB9;&#x603B;total&#xFF0C;&#x4FBF;&#x4E8E;&#x63A7;&#x5236;&#x6D4F;&#x89C8;&#x65F6;&#x95F4;&#xFF1B;</li>
-<li>&#x6BCF;&#x6B21;&#x52A0;&#x8F7D;&#x66FF;&#x6362;&#x6389;&#x5F53;&#x524D;&#x5217;&#x8868;&#x5185;&#x5BB9;&#xFF0C;&#x4E0D;&#x4F1A;&#x9020;&#x6210;&#x9875;&#x9762;&#x81C3;&#x80BF;&#xFF0C;&#x5BFC;&#x81F4;dom&#x8282;&#x70B9;&#x8FC7;&#x591A;&#x5F15;&#x53D1;&#x5361;&#x987F;&#xFF1B;</li>
-<li>&#x4FBF;&#x4E8E;&#x5B9A;&#x4F4D;&#x4FE1;&#x606F;&#x6D41;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x8BB0;&#x4F4F;&#x4E3B;&#x8981;&#x4FE1;&#x606F;&#x7684;&#x9875;&#x7801;&#x4FBF;&#x4E8E;&#x4E8C;&#x6B21;&#x67E5;&#x770B;&#xFF0C;&#x73B0;&#x5728;Google&#x3001;&#x767E;&#x5EA6;&#x3001;&#x6DD8;&#x5B9D;&#x7B49;&#x5728;&#x5217;&#x8868;&#x5C55;&#x793A;&#x90FD;&#x91C7;&#x53D6;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#xFF1B;</li></ul></blockquote>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/性能优化/">性能优化</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/编程/">编程</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/08/编程/分页加载与滚动加载设计的优缺点分析/#more">更多&nbsp; >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
@@ -566,7 +572,7 @@ window.onload = function(){
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 King
+    		&copy; 2018 King
     	</div>
     	<div class="footer-right">
     		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
