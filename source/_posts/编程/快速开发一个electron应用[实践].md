@@ -7,9 +7,8 @@ keywords: electron, react
 ---
 
 ## 一、背景
-* 年底了，除了冲KPI，还有什么？当然～逃不了的工作述职，工作述职，当然要讲你干了啥么，有啥产出？
 * 假如你做了APP，H5要给别人看，在述职PPT中最直接了当的办法-->截图！
-* 可是善良的我总是想，只放个截图会不会很单调啊，要是加个模型机预览会不会好很多？
+* 可是只放个截图会不会很单调啊，会不会被吐槽很丑，要是加个模型机预览会不会好很多？
 ## 二、PS大法
 不会搞设计的研发不是好研发，说干就干
 * 第一步，找模板(心里有点虚)[http://www.ui.cn/detail/26554.html](http://www.ui.cn/detail/26554.html)
@@ -23,7 +22,7 @@ keywords: electron, react
   ![合成后的结果](ps_combine.jpg)
 
 ## 三、技能升级
-​       明明可以用颜值取胜，非要靠才华？不对，明明可以用代码搞定，非要搞设计？步入正题，正好最近对electron比较感兴趣，又是要做工具，那就直接怼
+​       步入正题，正好最近对electron比较感兴趣，又是要做工具，那就试着写个小工具用
 ### 1.electron介绍
 
 ​        electron最开始不叫这个名字，叫“Atom Shell”,顾名思义，它给我们的应用整合提供了一个可运行的平台，electron通过将[Chromium](https://www.chromium.org/Home)和[Node.js](https://nodejs.org/)合并到同一个运行时环境中，并将其打包为Mac，Windows和Linux系统下的应用来实现这一目的，它负责比较难搞的部分，你只需把精力放在你的应用的核心上即可。现在比较流行的Atom编辑器也是基于electron开发。
@@ -242,15 +241,12 @@ npm run build:mac
 ## 五、结果
 </br>
 ![成果](result.jpg)
-根据STAR法则，恒量下得到了什么结果：
+对比下结果：
 
 | 方案         | 耗时    | 用户         |
 | ---------- | ----- | ---------- |
-| PS大法       | 5 min | 会PS的小哥哥小姐姐 |
-| iPhoneView | 10 s  | Anyone     |
-
-* What？效率提升300%~~~~哈哈哈哈哈
-* 其他收获，electron开发入门，新技能get
+| PS大法       | 5 min | 会ps的同学 |
+| iPhoneView | 10 s  | anyone     |
 
 ## 六、代码仓库
 [https://github.com/geneking/iphone-view](https://github.com/geneking/iphone-view)
