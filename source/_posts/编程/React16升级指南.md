@@ -54,13 +54,13 @@ render() {
 
 更多：<https://reactjs.org/docs/portals.html>
 
-#### 3.**更好的处理错误Error Boundaries**
+#### 3.更好的处理错误Error Boundaries
 
 若果组件定义了新的生命周期函数 componentDidCatch(error, info)，将error boundaries（错误边缘）想象成try{}catch(){}语句，只适用React组件
 
 更多：<https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html>
 
-#### 4.**更好的服务端渲染**
+#### 4.更好的服务端渲染
 
 React 16的SSR被完全重写，新的实现非常快，接近3倍性能于React 15，它支持流（streaming），可以很快的向客户端更快地发送字节
 
