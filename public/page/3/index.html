@@ -108,7 +108,7 @@ window.onload = function(){
 						<li>友情链接</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -228,6 +228,74 @@ window.onload = function(){
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-编程/react-native升级xcode8报错解决办法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/08/编程/react-native升级xcode8报错解决办法/" class="article-date">
+  	<time datetime="2016-11-07T16:00:00.000Z" itemprop="datePublished">2016-11-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/08/编程/react-native升级xcode8报错解决办法/">React Native 0.32版本以下升级xcode8报错解决办法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/2016/11/08/&#x7F16;&#x7A0B;/react-native&#x5347;&#x7EA7;xcode8&#x62A5;&#x9519;&#x89E3;&#x51B3;&#x529E;&#x6CD5;/xcode8.png" alt="xcode8"></p>
+<h3 id="1-RCTSRWebSocket-m&#x62A5;&#x9519;"><a href="#1-RCTSRWebSocket-m&#x62A5;&#x9519;" class="headerlink" title="1.RCTSRWebSocket.m&#x62A5;&#x9519;"></a>1.RCTSRWebSocket.m&#x62A5;&#x9519;</h3><ul>
+<li><p>&#x62A5;&#x9519;: Ignoring return value of function declared with warn_unused_result attribute</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//&#x4E24;&#x5904;&#x62A5;&#x9519;&#x7684;&#x5730;&#x65B9;</span></div><div class="line">SecRandomCopyBytes(kSecRandomDefault, sizeof(uint32_t), (uint8_t *)mask_key);</div></pre></td></tr></table></figure>
+</li>
+<li><p>&#x600E;&#x4E48;&#x4FEE;&#x6539;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//&#x524D;&#x9762;&#x52A0;void</span></div><div class="line">(<span class="keyword">void</span>)SecRandomCopyBytes(kSecRandomDefault, sizeof(uint32_t), (uint8_t *)mask_key);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react native</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/编程/">编程</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/11/08/编程/react-native升级xcode8报错解决办法/#more">更多&nbsp; >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
   
     <article id="post-编程/怎么开发一个npm包" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -485,67 +553,6 @@ window.onload = function(){
       
         <p class="article-more-link">
           <a  href="/2016/06/04/编程/移动端预览pdf解决方案/#more">更多&nbsp; >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-  
-    <article id="post-编程/写代码要写的优雅" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/18/编程/写代码要写的优雅/" class="article-date">
-  	<time datetime="2016-05-17T16:00:00.000Z" itemprop="datePublished">2016-05-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/18/编程/写代码要写的优雅/">写代码要写的优雅</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&#xA0;&#xA0;&#xA0;&#xA0;&#x4E0A;&#x5927;&#x5B66;&#x65F6;&#xFF0C;&#x94C1;&#x54E5;&#x66FE;&#x8BF4;&#x8FC7;&#x4E00;&#x53E5;&#x8BDD;&#xFF0C;&#x5199;&#x4EE3;&#x7801;&#x8981;&#x5199;&#x7684;&#x4F18;&#x96C5;&#xFF0C;&#x81F3;&#x4ECA;&#x4ECD;&#x8BB0;&#x5FC6;&#x72B9;&#x65B0;&#x3002;&#x5728;&#x5B66;&#x4E60;&#x5DE5;&#x4F5C;&#x4E2D;&#xFF0C;&#x6CE8;&#x610F;&#x4EE3;&#x7801;&#x98CE;&#x683C;&#xFF0C;&#x5982;&#x4F55;&#x5199;&#x4F18;&#x96C5;&#x7684;&#x4EE3;&#x7801;&#x80FD;&#x4F53;&#x73B0;&#x4E00;&#x4E2A;&#x4EBA;&#x7684;&#x4E25;&#x8C28;&#x6001;&#x5EA6;&#xFF0C;&#x4E5F;&#x80FD;&#x4F53;&#x73B0;&#x81EA;&#x5DF1;&#x7684;&#x7F16;&#x7A0B;&#x98CE;&#x683C;&#x3002;</p>
-<h3 id="1-switch-case&#x9047;&#x5230;array"><a href="#1-switch-case&#x9047;&#x5230;array" class="headerlink" title="1.switch case&#x9047;&#x5230;array"></a>1.switch case&#x9047;&#x5230;array</h3><p>&#x5C0F;&#x733F;A:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//res.type&#x4E3A;0,1,2</span></div><div class="line"><span class="keyword">var</span> userType = <span class="string">&apos;&apos;</span>;</div><div class="line"><span class="keyword">switch</span> (res.type) {</div><div class="line">	<span class="keyword">case</span> <span class="number">0</span>:</div><div class="line">		userType = <span class="string">&apos;&#x666E;&#x901A;&#x7528;&#x6237;&apos;</span>;</div><div class="line">		<span class="keyword">break</span>;</div><div class="line">	<span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">		userType = <span class="string">&apos;&#x7BA1;&#x7406;&#x5458;&apos;</span>;</div><div class="line">		<span class="keyword">break</span>;</div><div class="line">	<span class="keyword">case</span> <span class="number">2</span>:</div><div class="line">		userType = <span class="string">&apos;&#x8D85;&#x7EA7;&#x7BA1;&#x7406;&#x5458;&apos;</span>;</div><div class="line">		<span class="keyword">break</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/重构/">重构</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/编程/">编程</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/18/编程/写代码要写的优雅/#more">更多&nbsp; >></a>
         </p>
       
       <div class="clearfix"></div>

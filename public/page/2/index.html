@@ -108,7 +108,7 @@ window.onload = function(){
 						<li>友情链接</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -228,6 +228,71 @@ window.onload = function(){
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-编程/PM2在ES6下开启cluster模式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/05/18/编程/PM2在ES6下开启cluster模式/" class="article-date">
+  	<time datetime="2017-05-17T16:00:00.000Z" itemprop="datePublished">2017-05-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/18/编程/PM2在ES6下开启cluster模式/">PM2在ES6代码下运行cluster模式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-fork&#x6A21;&#x5F0F;&#x4E0B;&#x542F;&#x52A8;&#x6B63;&#x5E38;"><a href="#1-fork&#x6A21;&#x5F0F;&#x4E0B;&#x542F;&#x52A8;&#x6B63;&#x5E38;" class="headerlink" title="1.fork&#x6A21;&#x5F0F;&#x4E0B;&#x542F;&#x52A8;&#x6B63;&#x5E38;"></a>1.fork&#x6A21;&#x5F0F;&#x4E0B;&#x542F;&#x52A8;&#x6B63;&#x5E38;</h3><ul>
+<li>app.json&#xFF1A;&#x201D;exec_mode&#x201D;: &#x201C;fork&#x201D;<h3 id="2-cluster&#x6A21;&#x5F0F;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;"><a href="#2-cluster&#x6A21;&#x5F0F;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;" class="headerlink" title="2.cluster&#x6A21;&#x5F0F;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;"></a>2.cluster&#x6A21;&#x5F0F;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;</h3></li>
+<li><p>app.json&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">    <span class="string">&quot;apps&quot;</span>: [{</div><div class="line">        <span class="string">&quot;name&quot;</span>: <span class="string">&quot;app&quot;</span>,</div><div class="line">        <span class="string">&quot;script&quot;</span>: <span class="string">&quot;./app.js&quot;</span>,</div><div class="line">        <span class="string">&quot;node_args&quot;</span>: <span class="string">&quot;--harmony&quot;</span>,</div><div class="line">        <span class="string">&quot;autorestart&quot;</span>: <span class="literal">false</span>,</div><div class="line">        <span class="string">&quot;watch&quot;</span>: <span class="literal">true</span>,</div><div class="line">        <span class="string">&quot;exec_interpreter&quot;</span>: <span class="string">&quot;babel-node&quot;</span>,</div><div class="line">        <span class="string">&quot;instances&quot;</span>: <span class="string">&quot;max&quot;</span>,</div><div class="line">        <span class="string">&quot;exec_mode&quot;</span>: <span class="string">&quot;cluster&quot;</span>,</div><div class="line">        <span class="string">&quot;log_date_format&quot;</span>: <span class="string">&quot;YYYY - MM - DD HH: mm Z&quot;</span>,</div><div class="line">        <span class="string">&quot;error_file&quot;</span>: <span class="string">&quot;./logs/app-err.log&quot;</span>,</div><div class="line">        <span class="string">&quot;out_file&quot;</span>: <span class="string">&quot;./logs/app-out.log&quot;</span>,</div><div class="line">        <span class="string">&quot;env&quot;</span>: {</div><div class="line">            <span class="string">&quot;NODE_ENV&quot;</span>: <span class="string">&quot;production&quot;</span></div><div class="line">        }</div><div class="line">    }]</div><div class="line">}</div></pre></td></tr></table></figure>
+</li>
+<li><p>pm2 start app.json&#x65E0;&#x6CD5;&#x6B63;&#x5E38;&#x542F;&#x52A8;&#x5E94;&#x7528;</p></li></ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pm2/">pm2</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/编程/">编程</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/05/18/编程/PM2在ES6下开启cluster模式/#more">更多&nbsp; >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
   
     <article id="post-编程/Web应用log输出留后门" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -480,74 +545,6 @@ window.onload = function(){
       
         <p class="article-more-link">
           <a  href="/2016/12/21/编程/node如何正确的编译babel/#more">更多&nbsp; >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-  
-    <article id="post-编程/react-native升级xcode8报错解决办法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/11/08/编程/react-native升级xcode8报错解决办法/" class="article-date">
-  	<time datetime="2016-11-07T16:00:00.000Z" itemprop="datePublished">2016-11-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/08/编程/react-native升级xcode8报错解决办法/">React Native 0.32版本以下升级xcode8报错解决办法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/2016/11/08/&#x7F16;&#x7A0B;/react-native&#x5347;&#x7EA7;xcode8&#x62A5;&#x9519;&#x89E3;&#x51B3;&#x529E;&#x6CD5;/xcode8.png" alt="xcode8"></p>
-<h3 id="1-RCTSRWebSocket-m&#x62A5;&#x9519;"><a href="#1-RCTSRWebSocket-m&#x62A5;&#x9519;" class="headerlink" title="1.RCTSRWebSocket.m&#x62A5;&#x9519;"></a>1.RCTSRWebSocket.m&#x62A5;&#x9519;</h3><ul>
-<li><p>&#x62A5;&#x9519;: Ignoring return value of function declared with warn_unused_result attribute</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//&#x4E24;&#x5904;&#x62A5;&#x9519;&#x7684;&#x5730;&#x65B9;</span></div><div class="line">SecRandomCopyBytes(kSecRandomDefault, sizeof(uint32_t), (uint8_t *)mask_key);</div></pre></td></tr></table></figure>
-</li>
-<li><p>&#x600E;&#x4E48;&#x4FEE;&#x6539;</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//&#x524D;&#x9762;&#x52A0;void</span></div><div class="line">(<span class="keyword">void</span>)SecRandomCopyBytes(kSecRandomDefault, sizeof(uint32_t), (uint8_t *)mask_key);</div></pre></td></tr></table></figure>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react native</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/编程/">编程</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/11/08/编程/react-native升级xcode8报错解决办法/#more">更多&nbsp; >></a>
         </p>
       
       <div class="clearfix"></div>
