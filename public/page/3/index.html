@@ -1,12 +1,9 @@
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <meta name="baidu-site-verification" content="JpSPQPoUSx" />
-  <meta name="sogou_site_verification" content="77Vy4VMnmX"/>
-  <meta name="360-site-verification" content="34e66bd2c9beeca05bfca6b2ec99faae" />
   <title>King的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前端,编程,JavaScript,CSS,Coffee,Less,Node,King的个人博客">
@@ -25,221 +22,65 @@
     <link rel="icon" href="/favicon.png">
   
   <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
   
-<script type="text/javascript">
-//百度统计代码
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?6fe6ea647a61d874adb96c0ddf336518";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);s
-})();
-
-window.onload = function(){
-  var winW = window.screen.width;
-  //给首页添加背景音乐
-  if(location.href.replace('www.','').split(".")[1]==="me/" && winW>750){
-     var music = '<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=0 src="http://music.163.com/outchain/player?type=2&id=33035577&auto=1&height=66"></iframe>';
-     $("body").append(music);
-  }
-  //移动端隐移除访问量统计
-  if(winW < 750){
-    $("#count-pv").remove();
-    $("#footer .outer").css({width:"auto",height:"auto"});
-    $(".footer-right").hide();
-  }
-};
-</script>
-
-
 </head>
 
 <body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			
-			<img lazy-src="https://q2.qlogo.cn/g?b=qq&amp;k=jQ8PibVoL3AQORC8WO0ToIw&amp;s=640&amp;t=1479222618" class="js-avatar">
-			
-		</a>
-
-		<hgroup>
-		  <h1 class="header-author"><a href="/">King</a></h1>
-		</hgroup>
-
-		
-
-		
-			<div class="switch-btn">
-				<div class="icon">
-					<div class="icon-ctn">
-						<div class="icon-wrap icon-house" data-idx="0">
-							<div class="birdhouse"></div>
-							<div class="birdhouse_holes"></div>
-						</div>
-						<div class="icon-wrap icon-ribbon hide" data-idx="1">
-							<div class="ribbon"></div>
-						</div>
-						
-						<div class="icon-wrap icon-link hide" data-idx="2">
-							<div class="loopback_l"></div>
-							<div class="loopback_r"></div>
-						</div>
-						
-						
-						<div class="icon-wrap icon-me hide" data-idx="3">
-							<div class="user"></div>
-							<div class="shoulder"></div>
-						</div>
-						
-					</div>
-					
-				</div>
-				<div class="tips-box hide">
-					<div class="tips-arrow"></div>
-					<ul class="tips-inner">
-						<li>菜单</li>
-						<li>标签</li>
-						
-						<li>友情链接</li>
-						
-						
-						<li>Über</li>
-						
-					</ul>
-				</div>
-			</div>
-		
-
-		<div class="switch-area">
-			<div class="switch-wrap">
-				<section class="switch-part switch-part1">
-					<nav class="header-menu">
-						<ul>
-						
-							<li><a href="/">首 页</a></li>
-				        
-							<li><a href="/categories/编程">编 程</a></li>
-				        
-							<li><a href="/categories/工具">工 具</a></li>
-				        
-							<li><a href="/categories/随笔">随 笔</a></li>
-				        
-						</ul>
-					</nav>
-					<nav class="header-nav">
-						<div class="social">
-							
-								<a class="github" target="_blank" href="http://github.com/geneking" title="github">github</a>
-					        
-								<a class="mail" target="_blank" href="mailto:798757301@qq.com" title="mail">mail</a>
-					        
-								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
-					        
-						</div>
-					</nav>
-				</section>
-				
-				
-				<section class="switch-part switch-part2">
-					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/CodeReview/" style="font-size: 10px;">CodeReview</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/h5/" style="font-size: 10px;">h5</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 15px;">npm</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/react-native/" style="font-size: 15px;">react native</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/前后端分离/" style="font-size: 10px;">前后端分离</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/重构/" style="font-size: 10px;">重构</a>
-					</div>
-				</section>
-				
-				
-				
-				<section class="switch-part switch-part3">
-					<div id="js-friends">
-					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/xxcanghai">小小沧海</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://snaile.blog.51cto.com/">默守陈归</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://truilin.com/">Truilin</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://haha.tk/">HaHa</a>
-			        
-			        </div>
-				</section>
-				
-
-				
-				
-				<section class="switch-part switch-part4">
-				
-					<div id="js-aboutme">91年汉子一枚，毕业后一直从事前端相关工作，平时喜欢摄影、音乐、游泳，也喜欢旅游</div>
-				</section>
-				
-			</div>
-		</div>
-	</header>				
-</div>
-
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">King的博客</a>
+      </h1>
+      
     </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">King</h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-			
-				<img lazy-src="https://q2.qlogo.cn/g?b=qq&amp;k=jQ8PibVoL3AQORC8WO0ToIw&amp;s=640&amp;t=1479222618" class="js-avatar">
-			
-			</div>
-			<hgroup>
-			  <h1 class="header-author">King</h1>
-			</hgroup>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">首 页</a></li>
-		        
-					<li><a href="/categories/编程">编 程</a></li>
-		        
-					<li><a href="/categories/工具">工 具</a></li>
-		        
-					<li><a href="/categories/随笔">随 笔</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="http://github.com/geneking" title="github">github</a>
-			        
-						<a class="mail" target="_blank" href="mailto:798757301@qq.com" title="mail">mail</a>
-			        
-						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
-			        
-				</div>
-			</nav>
-		</header>				
-	</div>
-</nav>
-
-      <div class="body-wrap">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="keycode.me">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main">
   
     <article id="post-编程/react-native升级xcode8报错解决办法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/11/08/编程/react-native升级xcode8报错解决办法/" class="article-date">
-  	<time datetime="2016-11-07T16:00:00.000Z" itemprop="datePublished">2016-11-08</time>
+  <div class="article-meta">
+    <a href="/2016/11/08/编程/react-native升级xcode8报错解决办法/" class="article-date">
+  <time datetime="2016-11-07T16:00:00.000Z" itemprop="datePublished">2016-11-08</time>
 </a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/编程/">编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
     
     
       <header class="article-header">
@@ -251,7 +92,6 @@ window.onload = function(){
   
 
       </header>
-      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -264,50 +104,44 @@ window.onload = function(){
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//&#x524D;&#x9762;&#x52A0;void</span></div><div class="line">(<span class="keyword">void</span>)SecRandomCopyBytes(kSecRandomDefault, sizeof(uint32_t), (uint8_t *)mask_key);</div></pre></td></tr></table></figure>
 </li>
 </ul>
+        
+          <p class="article-more-link">
+            <a href="/2016/11/08/编程/react-native升级xcode8报错解决办法/#more">更多</a>
+          </p>
+        
       
     </div>
-    
-    <div class="article-info article-info-index">
+    <footer class="article-footer">
       
+        <a data-url="http://keycode.me/2016/11/08/编程/react-native升级xcode8报错解决办法/" data-id="cjgrnq37w000uowq8bxpmsc2p" class="article-share-link" data-share="baidu" data-title="React Native 0.32版本以下升级xcode8报错解决办法">分享到</a>
       
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react native</a></li></ul>
-	</div>
 
       
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/编程/">编程</a>
-	</div>
-
+        <a href="http://keycode.me/2016/11/08/编程/react-native升级xcode8报错解决办法/#ds-thread" class="article-comment-link">评论</a>
+      
 
       
-        <p class="article-more-link">
-          <a  href="/2016/11/08/编程/react-native升级xcode8报错解决办法/#more">更多&nbsp; >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react native</a></li></ul>
+
+    </footer>
   </div>
   
 </article>
 
 
-
-
-
   
     <article id="post-编程/怎么开发一个npm包" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/18/编程/怎么开发一个npm包/" class="article-date">
-  	<time datetime="2016-09-17T16:00:00.000Z" itemprop="datePublished">2016-09-18</time>
+  <div class="article-meta">
+    <a href="/2016/09/18/编程/怎么开发一个npm包/" class="article-date">
+  <time datetime="2016-09-17T16:00:00.000Z" itemprop="datePublished">2016-09-18</time>
 </a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/编程/">编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
     
     
       <header class="article-header">
@@ -319,7 +153,6 @@ window.onload = function(){
   
 
       </header>
-      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -334,50 +167,44 @@ window.onload = function(){
 <li>&#x9879;&#x76EE;&#x7ED3;&#x6784;&#xFF1A;<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">&#x251C;&#x2500;&#x2500; bin           <span class="comment">//&#x547D;&#x4EE4;&#x914D;&#x7F6E;</span></div><div class="line">&#x251C;&#x2500;&#x2500; README.md     <span class="comment">//&#x8BF4;&#x660E;&#x6587;&#x6863;</span></div><div class="line">&#x251C;&#x2500;&#x2500; index.js      <span class="comment">//&#x4E3B;&#x5165;&#x53E3;</span></div><div class="line">&#x251C;&#x2500;&#x2500; src           <span class="comment">//&#x529F;&#x80FD;&#x6587;&#x4EF6;</span></div><div class="line">&#x251C;&#x2500;&#x2500; package.json  <span class="comment">//&#x5305;&#x4FE1;&#x606F;</span></div><div class="line">&#x2514;&#x2500;&#x2500; test          <span class="comment">//&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
+        
+          <p class="article-more-link">
+            <a href="/2016/09/18/编程/怎么开发一个npm包/#more">更多</a>
+          </p>
+        
       
     </div>
-    
-    <div class="article-info article-info-index">
+    <footer class="article-footer">
       
+        <a data-url="http://keycode.me/2016/09/18/编程/怎么开发一个npm包/" data-id="cjgrnq3810015owq8x9vxdl6a" class="article-share-link" data-share="baidu" data-title="怎么开发一个npm包">分享到</a>
       
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
-	</div>
 
       
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/编程/">编程</a>
-	</div>
-
+        <a href="http://keycode.me/2016/09/18/编程/怎么开发一个npm包/#ds-thread" class="article-comment-link">评论</a>
+      
 
       
-        <p class="article-more-link">
-          <a  href="/2016/09/18/编程/怎么开发一个npm包/#more">更多&nbsp; >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
+
+    </footer>
   </div>
   
 </article>
 
 
-
-
-
   
     <article id="post-编程/h5-base库-像写pc一样写h5" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/19/编程/h5-base库-像写pc一样写h5/" class="article-date">
-  	<time datetime="2016-08-18T16:00:00.000Z" itemprop="datePublished">2016-08-19</time>
+  <div class="article-meta">
+    <a href="/2016/08/19/编程/h5-base库-像写pc一样写h5/" class="article-date">
+  <time datetime="2016-08-18T16:00:00.000Z" itemprop="datePublished">2016-08-19</time>
 </a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/编程/">编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
     
     
       <header class="article-header">
@@ -389,7 +216,6 @@ window.onload = function(){
   
 
       </header>
-      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -406,50 +232,44 @@ window.onload = function(){
 <li>delCookie             &#x5220;&#x9664;cookie</li>
 <li>getPhoneCode          &#x83B7;&#x53D6;&#x624B;&#x673A;&#x9A8C;&#x8BC1;&#x7801;</li>
 <li>delayGo               &#x5EF6;&#x8FDF;&#x5904;&#x7406;/&#x8DF3;&#x8F6C;</li></ul>
+        
+          <p class="article-more-link">
+            <a href="/2016/08/19/编程/h5-base库-像写pc一样写h5/#more">更多</a>
+          </p>
+        
       
     </div>
-    
-    <div class="article-info article-info-index">
+    <footer class="article-footer">
       
+        <a data-url="http://keycode.me/2016/08/19/编程/h5-base库-像写pc一样写h5/" data-id="cjgrnq37k000iowq8v6p5egex" class="article-share-link" data-share="baidu" data-title="h5-base库-像写pc一样写h5">分享到</a>
       
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/h5/">h5</a></li></ul>
-	</div>
 
       
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/编程/">编程</a>
-	</div>
-
+        <a href="http://keycode.me/2016/08/19/编程/h5-base库-像写pc一样写h5/#ds-thread" class="article-comment-link">评论</a>
+      
 
       
-        <p class="article-more-link">
-          <a  href="/2016/08/19/编程/h5-base库-像写pc一样写h5/#more">更多&nbsp; >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/h5/">h5</a></li></ul>
+
+    </footer>
   </div>
   
 </article>
 
 
-
-
-
   
     <article id="post-工具/webpack打包输出JS过大分析" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/05/工具/webpack打包输出JS过大分析/" class="article-date">
-  	<time datetime="2016-07-04T16:00:00.000Z" itemprop="datePublished">2016-07-05</time>
+  <div class="article-meta">
+    <a href="/2016/07/05/工具/webpack打包输出JS过大分析/" class="article-date">
+  <time datetime="2016-07-04T16:00:00.000Z" itemprop="datePublished">2016-07-05</time>
 </a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/工具/">工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
     
     
       <header class="article-header">
@@ -461,7 +281,6 @@ window.onload = function(){
   
 
       </header>
-      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -472,50 +291,44 @@ window.onload = function(){
 <li>base64&#x6BD4;&#x539F;&#x56FE;&#x8981;&#x5927;&#x4E00;&#x4E9B;&#xFF0C;&#x5927;&#x7EA6;&#x5927;1/3&#xFF0C;&#x6240;&#x4EE5;base64&#x53EA;&#x9002;&#x5408;&#x5C0F;&#x56FE;&#x6807;&#xFF0C;&#x4E0D;&#x9002;&#x5408;&#x504F;&#x5927;&#x7684;&#x56FE;</li>
 </ul>
 <h3 id="&#xFF08;2&#xFF09;&#x56FE;&#x7247;&#x6253;&#x5305;&#x6210;base64&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x53D8;&#x5927;"><a href="#&#xFF08;2&#xFF09;&#x56FE;&#x7247;&#x6253;&#x5305;&#x6210;base64&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x53D8;&#x5927;" class="headerlink" title="&#xFF08;2&#xFF09;&#x56FE;&#x7247;&#x6253;&#x5305;&#x6210;base64&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x53D8;&#x5927;"></a>&#xFF08;2&#xFF09;&#x56FE;&#x7247;&#x6253;&#x5305;&#x6210;base64&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x53D8;&#x5927;</h3><p>base64&#x7F16;&#x7801;&#x4F7F;&#x7528;&#x516B;&#x6BD4;&#x7279;&#x8868;&#x793A;&#x516D;&#x6BD4;&#x7279;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x504F;&#x5927;<br></p>
+        
+          <p class="article-more-link">
+            <a href="/2016/07/05/工具/webpack打包输出JS过大分析/#more">更多</a>
+          </p>
+        
       
     </div>
-    
-    <div class="article-info article-info-index">
+    <footer class="article-footer">
       
+        <a data-url="http://keycode.me/2016/07/05/工具/webpack打包输出JS过大分析/" data-id="cjgrnq38a001sowq84bwqpduh" class="article-share-link" data-share="baidu" data-title="webpack打包输出JS文件过大">分享到</a>
       
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
-	</div>
 
       
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/工具/">工具</a>
-	</div>
-
+        <a href="http://keycode.me/2016/07/05/工具/webpack打包输出JS过大分析/#ds-thread" class="article-comment-link">评论</a>
+      
 
       
-        <p class="article-more-link">
-          <a  href="/2016/07/05/工具/webpack打包输出JS过大分析/#more">更多&nbsp; >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+
+    </footer>
   </div>
   
 </article>
 
 
-
-
-
   
     <article id="post-编程/移动端预览pdf解决方案" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/04/编程/移动端预览pdf解决方案/" class="article-date">
-  	<time datetime="2016-06-03T16:00:00.000Z" itemprop="datePublished">2016-06-04</time>
+  <div class="article-meta">
+    <a href="/2016/06/04/编程/移动端预览pdf解决方案/" class="article-date">
+  <time datetime="2016-06-03T16:00:00.000Z" itemprop="datePublished">2016-06-04</time>
 </a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/编程/">编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
     
     
       <header class="article-header">
@@ -527,111 +340,220 @@ window.onload = function(){
   
 
       </header>
-      
     
     <div class="article-entry" itemprop="articleBody">
       
         <p>&#xA0;&#xA0;&#xA0;&#xA0;pdf&#x9884;&#x89C8;&#x5728;&#x524D;&#x7AEF;&#x5F00;&#x53D1;&#x4E2D;&#x6BD4;&#x8F83;&#x5E38;&#x89C1;&#xFF0C;&#x4F46;&#x662F;&#x79FB;&#x52A8;&#x7AEF;&#x9884;&#x89C8;pdf&#xFF0C;&#x8FD9;&#x79CD;&#x9700;&#x6C42;&#x5E94;&#x8BE5;&#x4E0D;&#x662F;&#x5F88;&#x591A;&#x3002;</p>
 <h3 id="1-&#x4E3B;&#x6D41;&#x7684;pdf&#x9884;&#x89C8;&#x63D2;&#x4EF6;"><a href="#1-&#x4E3B;&#x6D41;&#x7684;pdf&#x9884;&#x89C8;&#x63D2;&#x4EF6;" class="headerlink" title="1.&#x4E3B;&#x6D41;&#x7684;pdf&#x9884;&#x89C8;&#x63D2;&#x4EF6;"></a>1.&#x4E3B;&#x6D41;&#x7684;pdf&#x9884;&#x89C8;&#x63D2;&#x4EF6;</h3><h4 id="&#xFF08;1&#xFF09;pdfObject-js"><a href="#&#xFF08;1&#xFF09;pdfObject-js" class="headerlink" title="&#xFF08;1&#xFF09;pdfObject.js"></a>&#xFF08;1&#xFF09;pdfObject.js</h4><p>&#x8C03;&#x7528;&#x65B9;&#x5F0F;:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mynode = <span class="built_in">document</span>.getElementById(<span class="string">&quot;someID&quot;</span>);</div><div class="line">PDFObject.embed(<span class="string">&quot;myfile.pdf&quot;</span>, mynode);</div></pre></td></tr></table></figure></p>
 <p>&#x5177;&#x4F53;&#x53C2;&#x6570;&#x914D;&#x7F6E;&#x8BF7;&#x67E5;&#x770B;API:<a href="https://pdfobject.com/">&#x67E5;&#x770B;</a><br></p>
+        
+          <p class="article-more-link">
+            <a href="/2016/06/04/编程/移动端预览pdf解决方案/#more">更多</a>
+          </p>
+        
       
     </div>
-    
-    <div class="article-info article-info-index">
+    <footer class="article-footer">
       
+        <a data-url="http://keycode.me/2016/06/04/编程/移动端预览pdf解决方案/" data-id="cjgrnq3820019owq8ak8vk2vn" class="article-share-link" data-share="baidu" data-title="移动端pdf预览解决方案">分享到</a>
       
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li></ul>
-	</div>
 
       
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/编程/">编程</a>
-	</div>
-
+        <a href="http://keycode.me/2016/06/04/编程/移动端预览pdf解决方案/#ds-thread" class="article-comment-link">评论</a>
+      
 
       
-        <p class="article-more-link">
-          <a  href="/2016/06/04/编程/移动端预览pdf解决方案/#more">更多&nbsp; >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li></ul>
+
+    </footer>
   </div>
   
 </article>
 
 
-
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
-    </nav>
   
 
-</div>
-      <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<footer id="footer">
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">下一页 &raquo;</a>
+  </nav>
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">19</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CodeReview/">CodeReview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XSS/">XSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/h5/">h5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/log/">log</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pm2/">pm2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-native/">react native</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前后端分离/">前后端分离</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能优化/">性能优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动端/">移动端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重构/">重构</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CodeReview/" style="font-size: 10px;">CodeReview</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/h5/" style="font-size: 10px;">h5</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 15px;">npm</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/react-native/" style="font-size: 15px;">react native</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/前后端分离/" style="font-size: 10px;">前后端分离</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/重构/" style="font-size: 10px;">重构</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/20/编程/React16升级指南/">React 16升级指南</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/22/编程/快速开发一个electron应用[实践]/">快速开发一个electron应用-[实践]</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/21/编程/XSS攻击那些事儿/">XSS攻击那些事儿</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/18/编程/React的JSX语法简单支持if判断/">React的JSX语法简单支持if判断</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/09/编程/轻量级前后端分离方案GadFly/">轻量级前后端分离方案GadFly</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://www.cnblogs.com/xxcanghai" target="_blank">小小沧海</a>
+          </li>
+        
+          <li>
+            <a href="http://snaile.blog.51cto.com/" target="_blank">默守陈归</a>
+          </li>
+        
+          <li>
+            <a href="http://truilin.com/" target="_blank">Truilin</a>
+          </li>
+        
+          <li>
+            <a href="http://haha.tk/" target="_blank">HaHa</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
   <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2018 King
-    	</div>
-    	<div class="footer-right">
-    		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-    	</div>
+    <div id="footer-info" class="inner">
+      &copy; 2018 King<br>
+      Powered by <a href="//hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
     </div>
   </div>
 </footer>
-
-    </div>
-    
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-
-<script>
-	var yiliaConfig = {
-		fancybox: true,
-		mathjax: true,
-		animate: true,
-		isHome: true,
-		isPost: false,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: false
-	}
-</script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script src="/js/main.js"></script>
-
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-
   </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"jwg0428"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>
+  function SetShareData(cmd, config) {
+    if (shareDataTitle && shareDataUrl) {
+      config.bdText = shareDataTitle;
+      config.bdUrl = shareDataUrl;
+    }
+    return config;
+  }
+  window._bd_share_config={
+    "common":{onBeforeClick: SetShareData},
+    "share":{"bdCustomStyle":"/css/bdshare.css"}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
 </body>
 </html>

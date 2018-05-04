@@ -9,7 +9,7 @@ keywords: 前端,JavaScript,CSS,Coffee,Less,Node,npm
 description: 前端,编程,JavaScript,CSS,Coffee,Less,Node,King的个人博客
 author: King
 email: 798757301@qq.com
-language: zh-Hans
+language: zh-CN
 timezone:
 
 # URL
@@ -65,7 +65,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: hexo-theme-yilia
+theme: landscape-plus
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html

@@ -1,0 +1,41 @@
+# Header
+menu:
+  首页: /
+  归档: /archives
+rss: /atom.xml
+
+# Content
+excerpt_link: 更多
+fancybox: false
+mathjax: false
+
+# Sidebar
+sidebar: right
+widgets:
+- category
+- tag
+- tagcloud
+- archive
+- recent_posts
+- links
+
+# Links
+links:
+  小小沧海: http://www.cnblogs.com/xxcanghai
+  默守陈归: http://snaile.blog.51cto.com/
+  Truilin: http://truilin.com/
+  HaHa: http://haha.tk/
+
+# Miscellaneous
+google_analytics:
+favicon: /favicon.png
+twitter:
+google_plus:
+fb_admins:
+fb_app_id:
+
+# Duoshuo
+duoshuo_shortname: reqianduan
+
+# Baidu share
+baidushare: true
