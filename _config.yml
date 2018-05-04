@@ -26,7 +26,6 @@ tag_dir: tags
 archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
-#i18n_dir: :lang
 skip_render:
 
 # Writing
@@ -85,7 +84,7 @@ leancloud_visitors:
   app_key: xxbu7VCDCU5z3ADqyQq7DUk9
 
 # 多说评论
-duoshuo_shortname: jwg0428
+disqus_shortname: 
 
 # Extensions
 #Plugins:

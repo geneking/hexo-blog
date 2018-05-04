@@ -226,7 +226,7 @@ body {
 .widget h6 {
   font-weight: bold;
   color: #000;
-  font-family: "Droid Serif", Georgia, Serif;
+  font-family: "Microsoft Yahei";
 }
 .article-entry h1 a,
 .widget h1 a,
@@ -707,7 +707,7 @@ a.article-title:hover {
   padding: 10px 0;
 }
 .article-entry blockquote {
-  font-family: "Droid Serif", Georgia, Serif;
+  font-family: "Microsoft Yahei";
   margin: 1.6em 0;
   padding: 0 0.8em;
   border-left: 4px solid #ddd;
@@ -780,7 +780,7 @@ a.article-title:hover {
   zoom: 1;
   font-size: 0.85em;
   line-height: 1.6em;
-  border-top: 2px solid #ddd;
+  border-top: 1px solid #ddd;
   padding-top: 1.6em;
   margin: 0 20px 20px;
 }
@@ -1193,8 +1193,8 @@ a.article-title:hover {
 #page-nav a,
 #page-nav span {
   padding: 10px 20px;
-  line-height: 1;
-  height: 2ex;
+  line-height: 2;
+  height: 4ex;
 }
 #page-nav a {
   color: #999;
@@ -1209,9 +1209,12 @@ a.article-title:hover {
 }
 #page-nav .next {
   float: right;
+  font-size: 15px;
+  line-height: 2;
 }
 #page-nav .page-number {
   display: inline-block;
+  font-size: 15px;
 }
 @media screen and (max-width: 479px) {
   #page-nav .page-number {
